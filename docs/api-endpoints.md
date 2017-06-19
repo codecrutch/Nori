@@ -17,6 +17,9 @@
 * `GET /api/businesses/:id`
 * `DELETE /api/businesses/:id`
 
+## Search
+* `GET /api/businesses/search`
+
 ## Reviews
 * `GET /api/reviews`
 * `GET /api/reviews/:id`

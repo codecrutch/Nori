@@ -41,6 +41,12 @@
       kid_friendly_rating: 0,
     }
   },
+  categories: {
+    4: {
+      id: 4,
+      naem: 'Seafood',
+    }
+  }
   photos: {
     7: {
       id: 7,
