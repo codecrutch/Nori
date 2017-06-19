@@ -20,13 +20,12 @@ Nori is a web application inspired by Yelp built using Ruby on Rails and React/R
 - [ ] Map
 
 ## Design Docs
-* [View Wireframes][wireframes]
+* [View Wireframes](https://github.com/codecrutch/Nori/tree/master/docs/wireframes)
 * [React Components][components]
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
 [components]: component-hierarchy.md
 [sample-state]: sample-state.md
 [api-endpoints]: api-endpoints.md
