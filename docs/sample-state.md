@@ -12,14 +12,12 @@
       id: 1,
       name: "Sushi Shack",
       address: "123 Broadway",
-      city: "Manhattan",
-      state/province: "NY",
-      country: "USA",
+      lat: 40.757507,
+      long: -73.987772,
       avg_price: "12",
       website_url: "www.sushishack.com",
       business_img_url: "www.sushishack.com/logo.png",
-      lat: 40.757507,
-      long: -73.987772,
+      reviews: [2,7,9],
       hours: {
         monday: "6:00am - 10:00pm",
       },
@@ -44,10 +42,10 @@
   categories: {
     4: {
       id: 4,
-      naem: 'Seafood',
+      name: 'Seafood',
     }
   }
-  photos: {
+  images: {
     7: {
       id: 7,
       business_id: 1,

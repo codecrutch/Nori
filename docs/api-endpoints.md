@@ -18,26 +18,9 @@
 * `DELETE /api/businesses/:id`
 
 ## Search
-* `GET /api/businesses/search`
+* Part of business/search component
 
 ## Reviews
-* `GET /api/reviews`
-* `GET /api/reviews/:id`
+*  Received when posting for business
 * `POST /api/reviews`
 * `DELETE /api/reviews/:id`
-
-## Images
-* `GET /api/images`
-* `GET /api/images/:id`
-* `POST /api/images`
-* `DELETE /api/images/:id`
-
-## Categories
-* `GET /api/categories`
-* `POST /api/categories`
-* `DELETE /api/categories/:id`
-
-## Category Listings
-* `GET /api/category_listings`
-* `POST /api/category_listings`
-* `DELETE /api/category_listings`

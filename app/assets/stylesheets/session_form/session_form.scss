@@ -1,13 +1,19 @@
+$primary-color: #4ABDAC;
+$secondary-color: #FC4A1A;
+$button-color: #F7B744;
+$text-color: #DFDCE3;
+
 .auth-layout {
   box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
   border: solid #ccc 1px;
   border-radius: 10px;
   margin: 50px 0 0 50px;
   text-align: center;
-  background: darken(#4ABDAC, 1);
+  background: darken($primary-color, 0);
 }
 
 .auth-header {
+  grid-column-start: 3;
   letter-spacing: 3px;
   font-weight: bold;
   text-transform: capitalize;
@@ -16,14 +22,46 @@
   filter: alpha(opacity=30);
 }
 
+.form-left {
+  padding-left: 50px;
+  border-right: 2px solid transparentize(black, 0.9);
+}
+
+.form-image {
+  position: relative;
+  left: 17%;
+  height: 200px;
+  width: 200px;
+  border: 1px solid white;
+}
+
+.form-errors {
+  color: red;
+  text-align: justify;
+  list-style: none;
+  letter-spacing: none;
+  margin-top: 50px;
+  height: 40px;
+}
+
+.form-errors:empty {
+  opacity: 0;
+}
+
 .auth-form {
+  grid-column-start: 3;
   letter-spacing: 3px;
 
   input::placeholder {
-    letter-spacing: 1px;
+    letter-spacing: 1.3px;
+    padding-left: 10px;
     color: white;
     opacity: 0.5;
     filter: alpha(opacity=50);
+  }
+
+  input:focus {
+    outline: none !important;
   }
 
   .auth-username, .auth-password {
@@ -39,26 +77,26 @@
 
   input[type="submit"] {
     margin-top: 30px;
-    color: mediumturquoise;
+    color: $primary-color;
     text-transform: capitalize;
     background: #eaeff2;
-    background-image: -webkit-linear-gradient(top, #eaeff2, #afc2ae);
-    background-image: -moz-linear-gradient(top, #eaeff2, #afc2ae);
-    background-image: -ms-linear-gradient(top, #eaeff2, #afc2ae);
-    background-image: -o-linear-gradient(top, #eaeff2, #afc2ae);
-    background-image: linear-gradient(to bottom, #eaeff2, #afc2ae);
+    background-image: -webkit-linear-gradient(top, white, $text-color);
+    background-image: -moz-linear-gradient(top, white, $text-color);
+    background-image: -ms-linear-gradient(top, white, $text-color);
+    background-image: -o-linear-gradient(top, white, $text-color);
+    background-image: linear-gradient(to bottom, white, $text-color);
     -webkit-border-radius: 8;
     -moz-border-radius: 8;
     border-radius: 8px;
     font-family: Georgia;
-    color: #51a367;
+    color: $primary-color;
     font-size: 22px;
     padding: 10px 95px 10px 95px;
     text-decoration: none;
   }
 
   input[type="submit"]:hover {
-    background: #e2e8eb;
+    background: $text-color;
     background-image: -webkit-linear-gradient(top, #e2e8eb, #a6a6a6);
     background-image: -moz-linear-gradient(top, #e2e8eb, #a6a6a6);
     background-image: -ms-linear-gradient(top, #e2e8eb, #a6a6a6);

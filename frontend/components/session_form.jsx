@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import uniqueId from '../util/unique_id';
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -22,22 +23,26 @@ class SessionForm extends React.Component {
   }
 
   render(){
-    let errors = this.props.errors.map( error => <li>{error}</li>);
+    let errors = this.props.errors.map( error => <li key={uniqueId()}>{error}</li>);
 
     return(
-      <section className='auth-layout'>
-      <p className='auth-header'><span>{this.props.formType}</span></p>
-        <form className="auth-form" onSubmit={(e) => this.handleSubmit(e)}>
+      <section className='auth-layout columns'>
+        <div className="form-left columns column">
+          <p className="form-image column"></p>
+          <ul className='form-errors'>{errors}</ul>
+        </div>
 
-          <input className="auth-username" placeholder="Username" onChange={(e) => this.handleInput(e, "username")} />
+        <div className="column">
+          <p className='auth-header'><span>{this.props.formType}</span></p>
+          <form className="auth-form" onSubmit={(e) => this.handleSubmit(e)}>
+            <input className="auth-username" placeholder="Username" onChange={(e) => this.handleInput(e, "username")} required />
+            <br />
+            <input className="auth-password" placeholder="Password" onChange={(e) => this.handleInput(e, "password")} type='password' required />
+            <br />
 
-          <br />
-
-          <input className="auth-password" placeholder="Password" onChange={(e) => this.handleInput(e, "password")} type='password' />
-          <br />
-          <input type="submit" value={this.props.formType} />
-          <ul>{errors}</ul>
-        </form>
+            <input type="submit" value={this.props.formType} />
+          </form>
+        </div>
       </section>
     );
   }
