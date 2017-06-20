@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 
 const App = () => (
-  <div>
+  <div className="default-neat-grid">
     <header>
       <h1>Nori</h1>
       <Route exact path="/" component={Greeting} />
