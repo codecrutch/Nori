@@ -9,11 +9,16 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack -w"
+    "webpack": "webpack -w",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/codecrutch/nori.git"
+  },
+  "engines": {
+    "node": "6.7.0",
+    "npm": "3.10.7"
   },
   "keywords": [],
   "author": "",
