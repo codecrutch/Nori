@@ -2,6 +2,16 @@ $primary-color: #4ABDAC;
 $secondary-color: #FC4A1A;
 $button-color: #F7B744;
 $text-color: #DFDCE3;
+$default-color: gray;
+$font-color: darken($default-color, 60%);
+$light-color: lighten($default-color, 20%);
+$dark-color: darken($default-color, 20%);
+$contrast-color: teal;
+$warning-color: yellow;
+$important-color: red;
+$information-color: blue;
+$black-color: lighten(black, 5%);
+$white-color: darken(white, 5%);
 
 .auth-layout {
   box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);

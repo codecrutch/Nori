@@ -4,7 +4,7 @@
 
 [Trello Project Board][trello]
 
-[heroku]: https://nori.herokuapp.com/
+[heroku]: https://sushi-nori.herokuapp.com
 [trello]: https://trello.com/b/qKH8BJFk/nori
 
 ## Minimum Viable Product
