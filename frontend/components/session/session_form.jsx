@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
       <section className='auth-layout'>
         <section className='auth-container columns'>
           <div className="form-left columns column">
-            <p className="form-image column"></p>
+            <img className="form-image column"></img>
             <ul className='form-errors'>{errors}</ul>
           </div>
 
