@@ -12,6 +12,8 @@ $important-color: red;
 $information-color: blue;
 $black-color: lighten(black, 5%);
 $white-color: darken(white, 5%);
+$primary-font: 'Bubbler One', sans-serif;
+$logo-font: 'Satisfy', cursive;
 
 .auth-layout {
   box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
@@ -23,6 +25,7 @@ $white-color: darken(white, 5%);
 }
 
 .auth-header {
+  font-family: $logo-font;
   grid-column-start: 3;
   letter-spacing: 3px;
   font-weight: bold;
@@ -49,7 +52,7 @@ $white-color: darken(white, 5%);
   color: red;
   text-align: justify;
   list-style: none;
-  letter-spacing: none;
+  letter-spacing: -1px;
   margin-top: 50px;
   height: 40px;
 }
@@ -63,6 +66,7 @@ $white-color: darken(white, 5%);
   letter-spacing: 3px;
 
   input::placeholder {
+    font-family: inherit;
     letter-spacing: 1.3px;
     padding-left: 10px;
     color: white;
