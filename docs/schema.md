@@ -16,14 +16,12 @@
 | id               | integer   | not null, primary key |
 | name             | string    | not null              |
 | address          | string    | not null              |
-| city             | string    | not null              |
-| state_province   | string    | not null              |
-| country          | string    | not null              |
+| hours            | string    | not null              |
 | price_rating     | integer   | not null              |
 | website_url      | string    | not null              |
 | business_img_url | string    | not null              |
 | lat              | float     | not null              |
-| long             | float     | not null              |
+| lng              | float     | not null              |
 
 ## reviews
 
