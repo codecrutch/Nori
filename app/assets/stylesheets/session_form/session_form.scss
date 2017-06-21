@@ -1,27 +1,24 @@
 $primary-color: #4ABDAC;
-$secondary-color: #FC4A1A;
-$button-color: #F7B744;
 $text-color: #DFDCE3;
 $default-color: gray;
-$font-color: darken($default-color, 60%);
-$light-color: lighten($default-color, 20%);
-$dark-color: darken($default-color, 20%);
-$contrast-color: teal;
-$warning-color: yellow;
-$important-color: red;
-$information-color: blue;
-$black-color: lighten(black, 5%);
-$white-color: darken(white, 5%);
 $primary-font: 'Bubbler One', sans-serif;
 $logo-font: 'Satisfy', cursive;
 
 .auth-layout {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  width: 100%;
+}
+
+.auth-container {
+  width: 900px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
   border: solid #ccc 1px;
   border-radius: 10px;
-  margin: 50px 0 0 50px;
   text-align: center;
   background: darken($primary-color, 0);
+  margin: 50px;
 }
 
 .auth-header {
@@ -117,5 +114,15 @@ $logo-font: 'Satisfy', cursive;
     background-image: -o-linear-gradient(top, #e2e8eb, #a6a6a6);
     background-image: linear-gradient(to bottom, #e2e8eb, #a6a6a6);
     text-decoration: none;
+  }
+}
+
+@media only screen and (max-width: 786px) {
+  .form-left {
+    display:none !important;
+    border: none;
+    .form-image {
+      display: none;
+    }
   }
 }
