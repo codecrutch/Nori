@@ -16,7 +16,7 @@ const BusinessReducer = (state = defaultState, action) => {
       businesses = action.businesses;
       return merge({}, state, businesses);
     case RECEIVE_BUSINESS:
-      businesses = action.businesses;
+      businesses = action.business;
       return merge({}, state, businesses);
     case UPDATE_BUSINESS:
       newState = merge({}, state);

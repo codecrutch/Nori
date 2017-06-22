@@ -13,6 +13,11 @@ class Api::BusinessesController < ApplicationController
     end
   end
 
+  def show
+    @business = Business.find(params[:id])
+    render json: @business
+  end
+
   def update
     @business = Business.find(params[:id])
 
@@ -24,8 +29,8 @@ class Api::BusinessesController < ApplicationController
   end
 
   def destroy
-    @business = Business.find(params[:id])
-    if @business
+    @business = Business.find_by_id(params[:id])
+    unless @business.nil?
       @business.destroy
       render json: @business
     else
