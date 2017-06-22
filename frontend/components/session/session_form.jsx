@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import uniqueId from '../../util/unique_id';
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -20,10 +19,6 @@ class SessionForm extends React.Component {
   handleInput(event, field){
     let value = event.currentTarget.value;
     this.setState({ [field]: value });
-  }
-
-  componentWillReceiveProps(prevProps) {
-    let errors = prevProps.errors.forEach(error => this.props.notifyError({title: error}))
   }
 
   render(){

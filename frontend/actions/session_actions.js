@@ -22,7 +22,7 @@ export const login = (user) => dispatch => {
    return APIUtil.login(user)
     .then(
       (user) => dispatch(receiveCurrentUser(user)),
-      error => dispatch(Notifications.error({title: error.status, message: error.statusText }))
+      error => dispatch(Notifications.error({title: error.responseJSON}))
     );
   };
 
@@ -30,7 +30,7 @@ export const logout = () => dispatch => (
    APIUtil.logout()
     .then(
       () => dispatch(receiveCurrentUser(null)),
-      (errors) => dispatch(receiveErrors(errors))
+      error => dispatch(Notifications.error({title: error.responseJSON}))
     )
 );
 
