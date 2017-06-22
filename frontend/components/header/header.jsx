@@ -18,35 +18,24 @@ class Header extends React.Component {
     super(props)
   }
 
-  burgerToggle() {
-    let linksEl = document.querySelector('.narrowLinks');
-    if (linksEl.style.display === 'block') {
-      linksEl.style.display = 'none';
-    } else {
-      linksEl.style.display = 'block';
-    }
-  }
-
   sessionLinks() {
     if (this.props.currentUser){
       return (
-        <div>
-          <img src="#"/>
-          <Link to="/">Home</Link>
-          <Link to="/categories">Categories</Link>
-          <Link to="/" style={{color: 'green'}}>{this.props.currentUser.username}</Link>
-          <Link to='/' onClick={this.props.logout}>Logout</Link>
-        </div>
+        <ul className='nav navbar-nav navbar-right'>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/categories">Categories</Link></li>
+          <li><Link to="/" style={{color: 'green'}}>{this.props.currentUser.username}</Link></li>
+          <li><Link to='/' onClick={this.props.logout}>Logout</Link></li>
+        </ul>
       );
     } else {
       return (
-        <div>
-          <img src="#"/>
-          <Link to="/">Home</Link>
-          <Link to="/categories">Categories</Link>
-          <Link to='/signup'>Signup</Link>
-          <Link to='/login'>Login</Link>
-        </div>
+        <ul className="nav navbar-nav navbar-right">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/categories">Categories</Link></li>
+          <li><Link to='/signup'>Signup</Link></li>
+          <li><Link to='/login'>Login</Link></li>
+        </ul>
       );
     }
   }
@@ -54,22 +43,39 @@ class Header extends React.Component {
   render(){
     return (
       <header>
-        <navbar>
-          <nav>
-            <div className="navWide">
-              <div className="wideDiv">
+        <nav className="navbar navbar-default" role="navigation">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
+                <span className="sr-only">Toggle navigation</span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+              </button>
+              <Link className="navbar-brand" style={{ fontFamily: "Satisfy", fontSize: '30px !important' }} to="/">Nori</Link>
+            </div>
+
+            <div className="navbar-collapse collapse" id="navbar-collapsible">
+
+              <ul className="nav navbar-nav navbar-left">
+                <li><Link to="/featured">Featured</Link></li>
+              </ul>
+
+              <div>
                 {this.sessionLinks()}
               </div>
+
+              <form className="navbar-form text-center">
+                <div className="form-group" >
+                  <div className="input-group">
+                    <input type="text" className="form-control" />
+                    <span className="input-group-addon"><span className="glyphicon glyphicon-search"></span></span>
+                  </div>
+                </div>
+              </form>
             </div>
-            <div className="navNarrow">
-              <i className="fa fa-bars fa-2x" onClick={this.burgerToggle}>Replace With Hamburger</i>
-              <div className="narrowLinks">
-                <Link to="/" onClick={this.burgerToggle}>Search</Link>
-                <Link to="/categories" onClick={this.burgerToggle}>Categories</Link>
-              </div>
-            </div>
-          </nav> 
-        </navbar>
+          </div>
+        </nav>
       </header>
     )
   }

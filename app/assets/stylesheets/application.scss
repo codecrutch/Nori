@@ -10,39 +10,25 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "/**/*";
+@import "font-awesome";
 
 $primary-color: #4ABDAC;
 
 body {
-  display: flex;
-  flex-direction: column;
   font-family: 'Bubbler One', san-serif;
+  font-size: 18px;
 }
 
 html, body {
-  height: 100%;
   background: transparentize($primary-color, 0.8);
-}
-
-.app-wrapper {
 }
 
 input {
   font-family: 'Bubbler One', san-serif;
 }
 
-.columns {
-  display: flex;
-  flex: 1 1 auto;
-}
-
-.column {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: 10px;
-  margin: 10px;
-}

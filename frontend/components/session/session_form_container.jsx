@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
 import { login, signup } from '../../actions/session_actions';
+import Notifications from 'react-notification-system-redux';
 
 const mapStateToProps = (state, ownProps) => {
   return({
@@ -13,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return({
-    processForm: (user) => { processForm(dispatch, ownProps)(user)}
+    processForm: (user) => { processForm(dispatch, ownProps)(user)},
+    notifyError: (error) => dispatch(Notifications.error(error))
   });
 };
 

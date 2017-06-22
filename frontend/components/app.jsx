@@ -4,10 +4,12 @@ import Header from './header/header';
 import Footer from './footer/footer';
 import { Route } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
+import Notifications from './notifications';
 
 const App = () => (
   <div>
     <Header />
+    <Notifications />
     <AuthRoute path="/login" component={SessionForm} />
     <AuthRoute path="/signup" component={SessionForm} />
     <Footer />

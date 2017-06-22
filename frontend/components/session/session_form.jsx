@@ -22,18 +22,20 @@ class SessionForm extends React.Component {
     this.setState({ [field]: value });
   }
 
+  componentWillReceiveProps(prevProps) {
+    let errors = prevProps.errors.forEach(error => this.props.notifyError({title: error}))
+  }
+
   render(){
-    let errors = this.props.errors.map( error => <li key={uniqueId()}>{error}</li>);
 
     return(
-      <section className='auth-layout'>
-        <section className='auth-container columns'>
-          <div className="form-left columns column">
-            <img className="form-image column"></img>
-            <ul className='form-errors'>{errors}</ul>
+      <section className='auth-layout container'>
+        <section className='auth-container row'>
+          <div className="form-left col-med-6 col-lg-6">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Emoji_u1f363.svg/2000px-Emoji_u1f363.svg.png" className="form-image"></img>
           </div>
 
-          <div className="column">
+          <div className="form-right col-med-6 col-lg-6">
             <p className='auth-header'><span>{this.props.formType}</span></p>
             <form className="auth-form" onSubmit={(e) => this.handleSubmit(e)}>
               <input className="auth-username" placeholder="Username" onChange={(e) => this.handleInput(e, "username")} required />

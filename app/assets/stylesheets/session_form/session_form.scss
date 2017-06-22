@@ -5,9 +5,7 @@ $primary-font: 'Bubbler One', sans-serif;
 $logo-font: 'Satisfy', cursive;
 
 .auth-layout {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  width: 80%;
 }
 
 .auth-container {
@@ -16,7 +14,7 @@ $logo-font: 'Satisfy', cursive;
   border-radius: 10px;
   text-align: center;
   background: darken($primary-color, 0);
-  margin: 50px 200px 50px 200px;
+  padding: 15px;
 }
 
 .auth-header {
@@ -30,24 +28,19 @@ $logo-font: 'Satisfy', cursive;
 }
 
 .form-left {
-  padding-left: 50px;
-  border-right: 2px solid transparentize(black, 0.9);
+  padding-top: 50px;
 }
 
 .form-image {
-  align-self: center;
-  border-radius: 15em;
-  height: 200px;
-  width: 200px;
-  border: 1px solid white;
+  height: 60%;
+  width: 60%;
 }
 
 .form-errors {
   color: red;
-  text-align: justify;
   list-style: none;
   letter-spacing: -1px;
-  height: 40px;
+  position: absolute;
 }
 
 .form-errors:empty {
@@ -55,7 +48,6 @@ $logo-font: 'Satisfy', cursive;
 }
 
 .auth-form {
-  grid-column-start: 3;
   letter-spacing: 3px;
 
   input::placeholder {
@@ -115,10 +107,9 @@ $logo-font: 'Satisfy', cursive;
 
 @media only screen and (max-width: 786px) {
   .form-left {
-    display:none !important;
+    padding-top: 20px;
     border: none;
-    .form-image {
-      display: none;
+    img {
     }
   }
 }
