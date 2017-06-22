@@ -5,7 +5,19 @@ export const UPDATE_BUSINESS = "UPDATE_BUSINESS";
 export const REMOVE_BUSINESS = "REMOVE_BUSINESS";
 
 // action creators
+export const receiveAllBusinesses = (businesses) => {
+  return ({
+    type: RECEIVE_ALL_BUSINESSES,
+    businesses
+  });
+}
 
 
 // thunk async action creators
-
+export const fetchAllBusinesses = (query) => (dispatch) => {
+  return BusinessAPIUtil.fetchAllBusinesses(query)
+    .then(
+      businesses => dispatch(receiveAllBusinesses(businesses)),
+      error => dispatch(receiveErrors(error))
+    )
+};

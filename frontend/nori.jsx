@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import * as actions from './actions/session_actions';
+import * as bus from './actions/business_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.currentUser) {
     const preloadedState = { session: { currentUser: window.currentUser, errors: [] } };
     store = configureStore(preloadedState);
-
+    delete window.currentUser;
   } else {
     store = configureStore();
   }
@@ -22,9 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+    
+    window.fetchAllBusinesses = bus.fetchAllBusinesses;
   //
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);
 });
-
-//store.dispatch(actions.login({ user: {username: 'todd', password: 'idontknow'}}));
