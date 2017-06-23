@@ -24,3 +24,16 @@ Business.create(
   lat: 40.743381,
   lng: -73.99129
 )
+
+Business.create(
+  name: "Ajisen Ramen",
+  address: "136 W 28th St",
+  price_rating: 3,
+  hours: "Mon:6pm-10pm, Tues:9am-7pm",
+  website_url: "www.ajisenusa.com",
+  business_img_url: "https://s3-media3.fl.yelpcdn.com/bphoto/nY0QLfXdMCcPToIk7LY0uA/90s.jpg",
+  lat: 40.7465264,
+  lng: -73.9922244
+)
+
+

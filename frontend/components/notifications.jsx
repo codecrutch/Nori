@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import ReactDOM from 'react-dom';
-
 import Notifications from 'react-notification-system-redux';
 
 class Notify extends React.Component {

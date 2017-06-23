@@ -1,0 +1,81 @@
+.search-results {
+}
+
+.business-results {
+  position: relative;
+  left: 20%;
+
+}
+
+.business-item-photo {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 12px;
+}
+
+.business-item-contact {
+  position: relative;
+  top: -60px;
+  left: 350px;
+  font-size: 14px;
+}
+
+// [class*="col"] { background: #EEF; }
+
+.business-name {
+  font-size: 16px;
+}
+
+.rating-reviews {
+  font-size: 15px;
+}
+
+.business-review-count {
+  position: relative;
+  top: -12px;
+  margin-left: 10px;
+}
+
+.business-item {
+  margin-bottom: 5px;
+}
+
+.business-price-categories {
+  font-size: 14px;
+}
+
+.businesses-map {
+  height: 300px;
+  width: 300px;
+  border: 1px solid black;
+  position: relative;
+  left: 20%;
+}
+
+@media (max-width: 450px) {
+  .business-review-count {
+    position: absolute;
+    top: 33px;
+  }
+
+  .businesses-map {
+    width: 410px;
+  }
+}
+
+@media (min-width: 350px) and (max-width: 990px) {
+  .businesses-map {
+    width: 410px;
+    left: 3%;
+  }
+
+  .business-results {
+    left: 0;
+  }
+}
+
+.media {
+  min-width: 100%;
+}
