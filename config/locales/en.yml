@@ -21,3 +21,15 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      business:
+        website_url: "Website URL"
+        name: "Business name"
+        address: "Street address"
+        hours: "Business hours"
+        price_rating: "Average meal cost"
+        lat: "Latitude"
+        lng: "Longitude"
+        business_img_url: "Business image"
+

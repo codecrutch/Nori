@@ -9,7 +9,7 @@ class Api::BusinessesController < ApplicationController
     if @business.save
       render json: @business
     else
-      render json: @business.errors.full_messages
+      render json: @business.errors.full_messages, status: 404
     end
   end
 
@@ -24,7 +24,7 @@ class Api::BusinessesController < ApplicationController
     if @business.update_attributes(business_params)
       render json: @business
     else
-      render json: @business.errors.full_messages
+      render json: @business.errors.full_messages, status: 404
     end
   end
 

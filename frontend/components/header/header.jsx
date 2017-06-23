@@ -23,6 +23,7 @@ class Header extends React.Component {
       return (
         <ul className='nav navbar-nav navbar-right'>
           <li><Link to="/">Home</Link></li>
+          <li><Link to="/business/new">Add Business</Link></li>
           <li><Link to="/categories">Categories</Link></li>
           <li><Link to="/" style={{color: 'green'}}>{this.props.currentUser.username}</Link></li>
           <li><Link to='/' onClick={this.props.logout}>Logout</Link></li>
@@ -32,6 +33,7 @@ class Header extends React.Component {
       return (
         <ul className="nav navbar-nav navbar-right">
           <li><Link to="/">Home</Link></li>
+          <li><Link to="/business/new">Add Business</Link></li>
           <li><Link to="/categories">Categories</Link></li>
           <li><Link to='/signup'>Signup</Link></li>
           <li><Link to='/login'>Login</Link></li>

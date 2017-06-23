@@ -13,3 +13,11 @@ export const deleteBusiness = (id) => {
     data: id
   })
 }
+
+export const createBusiness = (business) => {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/businesses',
+    data: { business }
+  });
+};
