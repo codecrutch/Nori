@@ -8,6 +8,19 @@ $logo-font: 'Satisfy', cursive;
   width: 80%;
 }
 
+#demo-login {
+  position: relative;
+  top: -34px;
+  left: 90px;
+  width: 70px;
+}
+
+#form-submit {
+  position: relative;
+  right: 40px;
+  width: 170px;
+}
+
 .auth-container {
   box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
   border: solid #ccc 1px;
@@ -75,33 +88,12 @@ $logo-font: 'Satisfy', cursive;
   }
 
   input[type="submit"] {
-    margin-top: 30px;
-    color: $primary-color;
     text-transform: capitalize;
-    background: #eaeff2;
-    background-image: -webkit-linear-gradient(top, white, $text-color);
-    background-image: -moz-linear-gradient(top, white, $text-color);
-    background-image: -ms-linear-gradient(top, white, $text-color);
-    background-image: -o-linear-gradient(top, white, $text-color);
-    background-image: linear-gradient(to bottom, white, $text-color);
-    -webkit-border-radius: 8;
-    -moz-border-radius: 8;
-    border-radius: 8px;
-    font-family: Georgia;
-    color: $primary-color;
-    font-size: 22px;
-    padding: 10px 95px 10px 95px;
-    text-decoration: none;
+    background: #EFEFEF;
+    color: #4ABDAC;
   }
 
   input[type="submit"]:hover {
-    background: $text-color;
-    background-image: -webkit-linear-gradient(top, #e2e8eb, #a6a6a6);
-    background-image: -moz-linear-gradient(top, #e2e8eb, #a6a6a6);
-    background-image: -ms-linear-gradient(top, #e2e8eb, #a6a6a6);
-    background-image: -o-linear-gradient(top, #e2e8eb, #a6a6a6);
-    background-image: linear-gradient(to bottom, #e2e8eb, #a6a6a6);
-    text-decoration: none;
   }
 }
 
@@ -110,6 +102,24 @@ $logo-font: 'Satisfy', cursive;
     padding-top: 20px;
     border: none;
     img {
+    }
+  }
+}
+
+@media (min-width: 260px) and (max-width: 1200px) {
+  .form-left {
+    img {
+      width: 30%;
+    }
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 22200px) {
+  .form-left {
+    img {
+      position: relative;
+      top: -30px;
+      right: -70px;
     }
   }
 }

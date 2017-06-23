@@ -3,6 +3,11 @@ User.create(
   password: "craptastic"
 )
 
+User.create(
+  username: "Guest",
+  password: "password"
+)
+
 Business.create(
   name: "Johny's Luncheonette",
   address: "124 W 25th St",

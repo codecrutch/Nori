@@ -38,8 +38,9 @@ class SessionForm extends React.Component {
               <input className="auth-password" placeholder="Password" onChange={(e) => this.handleInput(e, "password")} type='password' required />
               <br />
 
-              <input type="submit" value={this.props.formType} />
+                <input id="form-submit" className="btn btn-large btn-info" type="submit" value={this.props.formType} />
             </form>
+                <button id="demo-login" className="btn btn-large btn-warning" onClick={this.props.guestLogin}>Demo</button>
           </div>
         </section>
       </section>
