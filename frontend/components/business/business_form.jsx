@@ -30,25 +30,27 @@ class BusinessForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const business = Object.assign({}, this.state);
-    debugger
     business.hours = this.convertHoursToString();
     this.props.getLatitudeAndLongitude(this.state.address).then(
       (res) => {
-        console.log(res);
-        let geolocation = res.results[0];
-        //grabout lat and long and put into business
-        business.address = geolocation.formatted_address;
-        business.lat = geolocation.geometry.location.lat;
-        business.lng = geolocation.geometry.location.lng;
-        console.log(business);
-        this.props.processForm(business);
+        if (res.status === 'ZERO_RESULTS') {
+          this.props.addressError("Couldn't Find Address");
+        } else {
+          console.log(res);
+          let geolocation = res.results[0];
+          //grabout lat and long and put into business
+          business.address = geolocation.formatted_address;
+          business.lat = geolocation.geometry.location.lat;
+          business.lng = geolocation.geometry.location.lng;
+          console.log(business);
+          this.props.processForm(business);
+        }
       },
-      (err) => this.props.addressError()
+      (err) => this.props.addressError("Address Missing")
     )
   }
 
   convertHoursToString() {
-
     let {mon,tues,wed,thurs,fri,sat,sun} = this.state
     let hourString = [
       "Mon:",mon,
@@ -60,12 +62,8 @@ class BusinessForm extends React.Component {
       "Sun:",sun
     ]
 
-
     hourString = hourString.join(' ');
-    debugger
-
     return hourString;
-
   }
 
   handleInput(event, field){

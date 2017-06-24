@@ -1,6 +1,10 @@
 class Api::BusinessesController < ApplicationController
   def index
-    @businesses = Business.all
+    if params[:q]
+      @businesses = Business.where("name ILIKE :search", search: "%#{params[:q]}%")
+    else
+      @businesses = Business.all
+    end
   end
 
   def create

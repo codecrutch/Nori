@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom';
 import StarRatingComponent from 'react-star-rating-component';
 
 
+const ratingConvert = (rating) => {
+  let priceString = '';
+  for (let i = 0; i < (parseInt(rating) + 1); i++) {
+    priceString = priceString.concat('$');
+  };
+  return priceString;
+};
+
 const BusinessListing = ({business}) => {
   return (
     <div className="business-item row align-items-end">
@@ -27,7 +35,7 @@ const BusinessListing = ({business}) => {
             />
             <span className="business-review-count">{ business.review_count } reviews</span>
           </div>
-          <p className = "business-price-categories">{ business.price_rating } • { business.categories }</p>
+          <p className = "business-price-categories"><span style={{color: 'green'}}>{ ratingConvert(business.price_rating) }</span> • { business.categories }</p>
         </div>
       </section>
       <div className="business-item-contact col-md-auto">

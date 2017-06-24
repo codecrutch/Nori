@@ -2,7 +2,8 @@ import {
   RECEIVE_ALL_BUSINESSES,
   RECEIVE_BUSINESS,
   UPDATE_BUSINESS,
-  REMOVE_BUSINESS
+  REMOVE_BUSINESS,
+  ADD_BUSINESS
 } from "../actions/business_actions";
 import merge from 'lodash/merge';
 
@@ -26,6 +27,8 @@ const BusinessReducer = (state = defaultState, action) => {
       newState = merge({}, state);
       delete newState[action.business]
       return newState;
+    case ADD_BUSINESS:
+      return merge({}, state, action.business);
     default:
       return state;
   }
