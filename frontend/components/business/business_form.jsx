@@ -30,14 +30,14 @@ class BusinessForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const business = Object.assign({}, this.state);
-    business.hours = this.convertHoursToString();
     debugger
+    business.hours = this.convertHoursToString();
     this.props.getLatitudeAndLongitude(this.state.address).then(
       (res) => {
         console.log(res);
         let geolocation = res.results[0];
         //grabout lat and long and put into business
-        business.address = geolocation.address_components.formatted_address;
+        business.address = geolocation.formatted_address;
         business.lat = geolocation.geometry.location.lat;
         business.lng = geolocation.geometry.location.lng;
         console.log(business);
@@ -74,6 +74,7 @@ class BusinessForm extends React.Component {
   }
 
   render(){
+    let hoursPlaceholder = "ex. 6:00am - 5:45pm";
 
     return(
       <section className='business-form-layout container'>
@@ -93,7 +94,53 @@ class BusinessForm extends React.Component {
               <br />
               <input className="business-form-business-img-url" placeholder="Business Image URL" onChange={(e) => this.handleInput(e, "business_img_url")} type='text' />
               <br />
-              <input className="business-form-price-rating" placeholder="Average Price" onChange={(e) => this.handleInput(e, "price_rating")} type='text' value={this.state.price_rating} />
+
+              <label>$
+                <input className="business-form-price-rating"
+                  placeholder="Average Price"
+                  onChange={(e) => this.handleInput(e, "price_rating")}
+                  type='radio'
+                  name="price_rating"
+                  value='0' />
+              </label>
+
+              <label>$$
+                <input className="business-form-price-rating"
+                  placeholder="Average Price"
+                  onChange={(e) => this.handleInput(e, "price_rating")}
+                  type='radio'
+                  name="price_rating"
+                  value={ 1 } />
+              </label>
+
+              <label>$$$
+                <input className="business-form-price-rating"
+                  placeholder="Average Price"
+                  onChange={(e) => this.handleInput(e, "price_rating")}
+                  type='radio'
+                  name="price_rating"
+                  value={ 2 } />
+              </label>
+
+              <label>$$$$
+                <input className="business-form-price-rating"
+                  placeholder="Average Price"
+                  onChange={(e) => this.handleInput(e, "price_rating")}
+                  type='radio'
+                  name="price_rating"
+                  value={ 3 } />
+              </label>
+
+              <label>$$$$$
+                <input className="business-form-price-rating"
+                  placeholder="Average Price"
+                  onChange={(e) => this.handleInput(e, "price_rating")}
+                  type='radio'
+                  name="price_rating"
+                  value={ 4 } />
+              </label>
+
+
               <br />
               <input className="business-form-phone" placeholder="Phone Number" onChange={(e) => this.handleInput(e, "phone")} type='text' />
               <br />
@@ -101,19 +148,19 @@ class BusinessForm extends React.Component {
               <br />
 
               <section id="hours">
-                <input className="mon" placeholder="Monday" onChange={(e) => this.handleInput(e, "mon")} type='text' value={this.state.mon} />
+                <input className="mon" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "mon")} type='text' value={this.state.mon} />
                 <br />
-                <input className="tues" placeholder="4pm-6:30am" onChange={(e) => this.handleInput(e, "tues")} type='text' />
+                <input className="tues" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "tues")} type='text' value={this.state.tues} />
                 <br />
-                <input className="wed" placeholder="Wednesday" onChange={(e) => this.handleInput(e, "wed")} type='text' />
+                <input className="wed" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "wed")} type='text' value={this.state.wed} />
                 <br />
-                <input className="thurs" placeholder="Thursday" onChange={(e) => this.handleInput(e, "thurs")} type='text' />
+                <input className="thurs" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "thurs")} type='text' value={this.state.thurs} />
                 <br />
-                <input className="fri" placeholder="Friday" onChange={(e) => this.handleInput(e, "fri")} type='text' />
+                <input className="fri" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "fri")} type='text' value={this.state.fri} />
                 <br />
-                <input className="sat" placeholder="Saturday" onChange={(e) => this.handleInput(e, "sat")} type='text' />
+                <input className="sat" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "sat")} type='text' value={this.state.sat} />
                 <br />
-                <input className="sun" placeholder="Sunday" onChange={(e) => this.handleInput(e, "sun")} type='text' />
+                <input className="sun" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "sun")} type='text' value={this.state.sun} />
                 <br />
               </section>
               <br />
