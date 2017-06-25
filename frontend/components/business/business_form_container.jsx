@@ -1,19 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BusinessForm from './business_form';
-import { login, signup } from '../../actions/business_actions';
+import { createBusiness } from '../../actions/business_actions';
 import { geocodeAddress } from '../../util/map_api_util.js';
 import Notifications from 'react-notification-system-redux';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return({
-    formType: ownProps.location.pathname.slice(1).split('/')[1] + " business"
+    formTitle: "Create Business",
   });
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return({
-    processForm: (business) => { processForm(dispatch, ownProps)(business)},
+    processForm: (business) => dispatch(createBusiness(business)),
     getLatitudeAndLongitude: (address) => geocodeAddress(address),
     addressError: (title) => dispatch(Notifications.error({
       title: title,
@@ -22,14 +22,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       autoDismiss: 5,
     }))
   });
-};
-
-const processForm = (dispatch, ownProps) => {
-  if (ownProps.location.pathname === '/business/new') {
-    return (business) => dispatch(createBusiness(business));
-  } else {
-    return (business) => dispatch(updateBusiness(business));
-  }
 };
 
 export default connect(

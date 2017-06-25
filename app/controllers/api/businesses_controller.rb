@@ -13,7 +13,7 @@ class Api::BusinessesController < ApplicationController
     if @business.save
       render json: @business
     else
-      render json: @business.errors.full_messages, status: 404
+      render json: @business.errors.full_messages, status: 422
     end
   end
 

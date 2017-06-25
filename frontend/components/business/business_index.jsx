@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return({
-    fetchAllBusinesses: () => dispatch(fetchAllBusinesses())
+    fetchAllBusinesses: (query) => dispatch(fetchAllBusinesses(query))
   });
 };
 
@@ -21,22 +21,21 @@ class BusinessIndex extends React.Component {
     super(props);
   }
 
-  componentDidMount(){
-    this.props.fetchAllBusinesses();
+  displayBusinesses(){
+    let businesses = this.props.businesses;
+    if (businesses.length === 0) {
+      return <h1>No results</h1>;
+    } else {
+      return businesses = businesses.map(business => <BusinessListing className='business-listing' key={business.id} business={business} />);
+    }
   }
 
   render(){
-    let businesses = this.props.businesses;
-
-    if (businesses) {
-      businesses = businesses.map(business => <BusinessListing className='business-listing' key={business.id} business={business} />);
-    }
-
     return (
       <section className="container">
         <div className="search-results row">
           <section className="business-results col-lg-5 col-xs-12 col-sm-12 col-md-6">
-            {businesses}
+            {this.displayBusinesses()}
           </section>
           <section className="businesses-map col-lg-4 col-xs-12 col-sm-12 col-md-6">
             Map

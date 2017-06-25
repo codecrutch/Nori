@@ -1,18 +1,19 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class BusinessForm extends React.Component {
+class BusinessEditForm extends React.Component {
   constructor(props){
     super(props);
 
+    let business = props.business;
     this.state = {
-      name: "",
-      address: "",
-      phone: "",
-      hours: "",
-      price_rating: "0",
-      website_url: "",
-      business_img_url: "",
+      name: business.name,
+      address: business.address,
+      phone: business.phone,
+      hours: business.hours,
+      price_rating: business.price_rating,
+      website_url: business.website_url,
+      business_img_url: business.business_img_url,
       mon: "6am-10pm",
       tues: "6am-10pm",
       wed: "6am-10pm",
@@ -27,23 +28,24 @@ class BusinessForm extends React.Component {
     this.convertHoursToString = this.convertHoursToString.bind(this);
   }
 
-  componentDidMount() {
-    let businessId = this.props.match.params.businessId;
-
-    if (businessId) {
-      this.props.getBusiness(businessId);
-    }
-  }
-
   componentWillReceiveProps(newProps) {
-    let oldBusinessId = this.props.match.params.businessId;
-    let newBusinessId = newProps.match.params.businessId;
-
-    if (this.props.location.pathname !== '/business/new'){
-      if (oldBusinessId !== newBusinessId) {
-        this.props.getBusiness(newBusinessId);
-      }
-    }
+    let business = newProps.business;
+    this.setState({
+      name: business.name,
+      address: business.address,
+      phone: business.phone,
+      hours: business.hours,
+      price_rating: business.price_rating,
+      website_url: business.website_url,
+      business_img_url: business.business_img_url,
+      mon: "6am-10pm",
+      tues: "6am-10pm",
+      wed: "6am-10pm",
+      thurs: "6am-10pm",
+      fri: "6am-10pm",
+      sat: "6am-10pm",
+      sun: "6am-10pm"
+    });
   }
 
   handleSubmit(e) {
@@ -62,6 +64,7 @@ class BusinessForm extends React.Component {
           business.lat = geolocation.geometry.location.lat;
           business.lng = geolocation.geometry.location.lng;
           console.log(business);
+          business.id = this.props.match.params.businessId;
           this.props.processForm(business);
         }
       },
@@ -101,15 +104,15 @@ class BusinessForm extends React.Component {
           </div>
 
           <div className="form-right col-med-6 col-lg-6">
-            <p className='business-form-header'><span>{this.props.formTitle}</span></p>
+            <p className='business-form-header'><span>Update {this.state.name}</span></p>
             <form className="business-form-form" onSubmit={(e) => this.handleSubmit(e)}>
-              <input className="business-form-name" placeholder="Business Name" onChange={(e) => this.handleInput(e, "name")} />
+              <input className="business-form-name" placeholder="Business Name" onChange={(e) => this.handleInput(e, "name")} value={this.state.name}/>
               <br />
-              <input className="business-form-address" placeholder="Address" onChange={(e) => this.handleInput(e, "address")} type='text' />
+              <input className="business-form-address" placeholder="Address" onChange={(e) => this.handleInput(e, "address")} type='text' value={this.state.address}/>
               <br />
-              <input className="business-form-website-url" placeholder="Website URL" onChange={(e) => this.handleInput(e, "website_url")} type='text' />
+              <input className="business-form-website-url" placeholder="Website URL" onChange={(e) => this.handleInput(e, "website_url")} type='text' value={this.state.website_url}/>
               <br />
-              <input className="business-form-business-img-url" placeholder="Business Image URL" onChange={(e) => this.handleInput(e, "business_img_url")} type='text' />
+              <input className="business-form-business-img-url" placeholder="Business Image URL" onChange={(e) => this.handleInput(e, "business_img_url")} type='text' value={this.state.business_img_url}/>
               <br />
 
               <label>$
@@ -118,9 +121,7 @@ class BusinessForm extends React.Component {
                   onChange={(e) => this.handleInput(e, "price_rating")}
                   type='radio'
                   name="price_rating"
-                  value={ 0 }
-                  defaultChecked
-                />
+                  value={ 0 } />
               </label>
 
               <label>$$
@@ -161,7 +162,7 @@ class BusinessForm extends React.Component {
 
 
               <br />
-              <input className="business-form-phone" placeholder="Phone Number" onChange={(e) => this.handleInput(e, "phone")} type='text' />
+              <input className="business-form-phone" placeholder="Phone Number" onChange={(e) => this.handleInput(e, "phone")} type='text' value={this.state.phone} />
               <br />
 
               <br />
@@ -184,7 +185,7 @@ class BusinessForm extends React.Component {
               </section>
               <br />
 
-              <input id="business-form-submit" className="btn btn-large btn-info" type="submit" value={this.props.formTitle} />
+              <input id="business-form-submit" className="btn btn-large btn-info" type="submit" value="Save Changes" />
             </form>
           </div>
         </section>
@@ -193,4 +194,4 @@ class BusinessForm extends React.Component {
   }
 }
 
-export default withRouter(BusinessForm);
+export default withRouter(BusinessEditForm);

@@ -27,7 +27,7 @@ const BusinessListing = ({business}) => {
               name="rate2"
               editing={false}
               starCount={5}
-              value={2.5}
+              value={3.5}
               renderStarIcon={(index, value) => {
                 return <span className={index <= value ? 'fa fa-star' : 'fa fa-star-o'} />;
               }}
@@ -37,12 +37,12 @@ const BusinessListing = ({business}) => {
           </div>
           <p className = "business-price-categories"><span style={{color: 'green'}}>{ ratingConvert(business.price_rating) }</span> • { business.categories }</p>
         </div>
-      </section>
-      <div className="business-item-contact col-md-auto">
+      <div className="business-item-contact col-xs-3">
         <p>{ business.address }</p>
         <p>{ business.city_params }</p>
         <p>{ business.phone }</p>
       </div>
+      </section>
     </div>
   );
 };

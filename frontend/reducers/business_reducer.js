@@ -14,21 +14,17 @@ const BusinessReducer = (state = defaultState, action) => {
   let businesses;
   switch (action.type) {
     case RECEIVE_ALL_BUSINESSES:
-      businesses = action.businesses;
-      return merge({}, state, businesses);
+      return action.businesses;
     case RECEIVE_BUSINESS:
-      businesses = action.business;
-      return merge({}, state, businesses);
+      return action.business;
     case UPDATE_BUSINESS:
-      newState = merge({}, state);
-      newState[action.business.id] = action.business;
-      return newState;
+      return action.business;
     case REMOVE_BUSINESS:
       newState = merge({}, state);
       delete newState[action.business]
       return newState;
     case ADD_BUSINESS:
-      return merge({}, state, action.business);
+      return action.business;
     default:
       return state;
   }

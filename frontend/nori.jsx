@@ -23,10 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.getState = store.getState;
     window.dispatch = store.dispatch;
-
-    window.fetchAllBusinesses = bus.fetchAllBusinesses;
-    window.deleteBusiness = bus.deleteBusiness;
-    window.createBusiness = bus.createBusiness;
   // END TESTING
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);
