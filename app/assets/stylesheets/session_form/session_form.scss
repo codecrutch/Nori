@@ -1,4 +1,4 @@
-$primary-color: #4ABDAC;
+$primary-color: #d32323;
 $text-color: #DFDCE3;
 $default-color: gray;
 $primary-font: 'Bubbler One', sans-serif;
@@ -26,7 +26,7 @@ $logo-font: 'Satisfy', cursive;
   border: solid #ccc 1px;
   border-radius: 10px;
   text-align: center;
-  background: darken($primary-color, 0);
+  background: lighten($primary-color, 7);
   padding: 15px;
 }
 

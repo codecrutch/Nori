@@ -8,14 +8,10 @@ class Footer extends React.Component {
   render(){
     var style = {
       backgroundColor: "#f7d565",
-      borderTop: "1px solid #ead05b",
-      textAlign: "center",
-      padding: "20px",
+      paddingTop: "20px",
       position: "fixed",
-      left: "0",
-      bottom: "0",
-      height: "60px",
-      width: "100%",
+      marginTop: "-150px",
+      height: "150px",
     };
 
     var phantom = {

@@ -12,7 +12,7 @@
 .navbar-brand {
   font-family: Satisfy;
   position: relative;
-  left: 336px;
+  left: 25%;
   top: -7px;
   font-size: 36px;
 }
@@ -29,11 +29,13 @@
 }
 
 #under-nav-bar {
+
   a {
-    padding: 3px 10px 3px 10px;
+    padding: 3px 60px 3px 10px;
     margin-right: 10px;
     width: 100px;
   }
+
   a:visited {
     color: white;
   }
@@ -42,6 +44,7 @@
     background-color: darken(#D32323, 15);
     text-decoration: none;
   }
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,7 +59,7 @@
 
 .form-group {
   position: relative;
-  left: 55px;
+  left: 4%;
 }
 
 #search-bar {
@@ -118,37 +121,34 @@
   font-weight: bold;
 }
 
-#log {
-  position: relative;
-  right: 261px;
-  background-color: darken(#D32323, 4);
-  border: none;
-  color: white;
-  top: 58px;
-  padding: 1px 24px;
-  font-size: 15px;
-}
-
 #under-nav-links {
   flex: 1;
 }
 
-#signup {
-  position: relative;
-  right: 184px;
-  background: brown;
-  font-size: 15px;
-  padding: 5px 10px 5px 10px;
-  top: 10px;
-  border-radius: 3px;
+@media (min-width: 200px) and (max-width: 650px) {
+  #under-nav-bar a {
+    padding: 0;
+  }
+
+  #search-bar {
+    position: absolute;
+  }
 }
 
-#username {
-  position: relative;
-  right: 184px;
-  background: brown;
-  font-size: 15px;
-  padding: 5px 10px 5px 10px;
-  top: 10px;
-  border-radius: 3px;
+@media (max-width: 1218px) {
+  .navbar-brand {
+    display: none;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 695px) {
+  .navbar-brand {
+    display: block;
+  }
+}
+
+@media (min-width: 768px){
+  .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: 6px;
+  }
 }

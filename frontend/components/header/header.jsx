@@ -25,17 +25,17 @@ class Header extends React.Component {
   sessionLinks() {
     if (this.props.currentUser){
       return (
-        <ul className='nav navbar-nav navbar-right'>
-          <li><Link id="username" to="/"><span className="glyphicon glyphicon-user"></span>&nbsp;{this.props.currentUser.username}</Link></li>
-          <li><Link id="log" to='/' onClick={this.props.logout}>Logout</Link></li>
-        </ul>
+        <span>
+          <Link id="username" to="/"><span className="glyphicon glyphicon-user"></span>&nbsp;{this.props.currentUser.username}</Link>
+          <Link id="log" to='/' onClick={this.props.logout}>Logout</Link>
+        </span>
       );
     } else {
       return (
-        <ul className="nav navbar-nav navbar-right">
-          <li><Link id="signup" to='/signup'>Signup</Link></li>
-          <li><Link id="log" to='/login'>Login</Link></li>
-        </ul>
+        <span>
+          <Link id="signup" to='/signup'>Signup</Link>
+          <Link id="log" to='/login'>Login</Link>
+        </span>
       );
     }
   }
@@ -60,23 +60,9 @@ class Header extends React.Component {
         <nav className="navbar navbar-default" role="navigation">
           <div className="container-fluid">
             <div className="navbar-header">
-              <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
-                <span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-              </button>
             </div>
 
             <div className="navbar-collapse collapse" id="navbar-collapsible">
-
-              <ul className="nav navbar-nav navbar-left">
-              </ul>
-
-              <div>
-                {this.sessionLinks()}
-              </div>
-
               <form className="navbar-form text-center">
                 <Link className="navbar-brand" to="/">Nori</Link>
                 <div className="form-group" >
@@ -99,6 +85,7 @@ class Header extends React.Component {
               <Link to="/businesses"><i className="fa fa-cutlery" aria-hidden="true" style={{fontsize: '2px'}}></i> Restaurants</Link>
               <Link to="/business/new"><span id="sushi-icon"></span> Add Business</Link>
               <Link to="/categories">Categories</Link>
+              {this.sessionLinks()}
             </div>
           </div>
         </div>
