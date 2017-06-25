@@ -1,0 +1,154 @@
+.navbar-default {
+  margin-bottom: 0px !important;
+  background-color: lighten(#d32323, 3);
+  border-radius: 0px;
+  border-color: #d32323;
+
+  a {
+    color: white !important;
+  }
+}
+
+.navbar-brand {
+  font-family: Satisfy;
+  position: relative;
+  left: 336px;
+  top: -7px;
+  font-size: 36px;
+}
+
+#under-nav {
+  display: flex;
+  height: 21px;
+  max-height: 21px;
+  background-color: darken(#D32323, 4);
+  margin-bottom: 40px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#under-nav-bar {
+  a {
+    padding: 3px 10px 3px 10px;
+    margin-right: 10px;
+    width: 100px;
+  }
+  a:visited {
+    color: white;
+  }
+
+  a:hover {
+    background-color: darken(#D32323, 15);
+    text-decoration: none;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 21px;
+  max-height: 21px;
+  background-color: darken(#D32323, 4);
+  margin-bottom: 40px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.form-group {
+  position: relative;
+  left: 55px;
+}
+
+#search-bar {
+  position: relative;
+  width: 300px;
+  height: 30px;
+  text-indent: 24px;
+  border-radius: 5px;
+  border: none;
+  z-index: 1;
+}
+
+#near-search-bar {
+  position: relative;
+  width: 269px;
+  height: 30px;
+  text-indent: 24px;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  right: 10px;
+  z-index: 2;
+}
+
+#psuedo-find-input {
+  position: relative;
+  color: #333333;
+  font-size: 12px;
+  top: -1px;
+  right: -53px;
+  z-index: 3;
+  font-family: serif;
+  font-weight: bold;
+}
+
+.navbar-form .form-control:focus {
+  border: none !important;
+  outline: none;
+  box-shadow: none;
+
+}
+
+.input-group-addon {
+  position: relative;
+  right: 12px;
+  background-color: darken(#D32323, 4);
+  border: none;
+  color: white;
+}
+
+#psuedo-near-input {
+  position: relative;
+  color: #333333;
+  font-size: 12px;
+  top: -1px;
+  right: -320px;
+  z-index: 3;
+  font-family: serif;
+  font-weight: bold;
+}
+
+#log {
+  position: relative;
+  right: 261px;
+  background-color: darken(#D32323, 4);
+  border: none;
+  color: white;
+  top: 58px;
+  padding: 1px 24px;
+  font-size: 15px;
+}
+
+#under-nav-links {
+  flex: 1;
+}
+
+#signup {
+  position: relative;
+  right: 184px;
+  background: brown;
+  font-size: 15px;
+  padding: 5px 10px 5px 10px;
+  top: 10px;
+  border-radius: 3px;
+}
+
+#username {
+  position: relative;
+  right: 184px;
+  background: brown;
+  font-size: 15px;
+  padding: 5px 10px 5px 10px;
+  top: 10px;
+  border-radius: 3px;
+}

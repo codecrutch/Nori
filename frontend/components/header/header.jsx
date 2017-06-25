@@ -26,21 +26,15 @@ class Header extends React.Component {
     if (this.props.currentUser){
       return (
         <ul className='nav navbar-nav navbar-right'>
-          <li><Link to="/#">Home</Link></li>
-          <li><Link to="/business/new">Add Business</Link></li>
-          <li><Link to="/categories">Categories</Link></li>
-          <li><Link to="/" style={{color: 'green'}}>{this.props.currentUser.username}</Link></li>
-          <li><Link to='/' onClick={this.props.logout}>Logout</Link></li>
+          <li><Link id="username" to="/"><span className="glyphicon glyphicon-user"></span>&nbsp;{this.props.currentUser.username}</Link></li>
+          <li><Link id="log" to='/' onClick={this.props.logout}>Logout</Link></li>
         </ul>
       );
     } else {
       return (
         <ul className="nav navbar-nav navbar-right">
-          <li><Link to="/#">Home</Link></li>
-          <li><Link to="/business/new">Add Business</Link></li>
-          <li><Link to="/categories">Categories</Link></li>
-          <li><Link to='/signup'>Signup</Link></li>
-          <li><Link to='/login'>Login</Link></li>
+          <li><Link id="signup" to='/signup'>Signup</Link></li>
+          <li><Link id="log" to='/login'>Login</Link></li>
         </ul>
       );
     }
@@ -72,13 +66,11 @@ class Header extends React.Component {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <Link className="navbar-brand" style={{ fontFamily: "Satisfy", fontSize: '30px !important' }} to="/">Nori</Link>
             </div>
 
             <div className="navbar-collapse collapse" id="navbar-collapsible">
 
               <ul className="nav navbar-nav navbar-left">
-                <li><Link to="/featured">Featured</Link></li>
               </ul>
 
               <div>
@@ -86,9 +78,13 @@ class Header extends React.Component {
               </div>
 
               <form className="navbar-form text-center">
+                <Link className="navbar-brand" to="/">Nori</Link>
                 <div className="form-group" >
+                    <span id='psuedo-find-input'>Find</span>
+                    <span id='psuedo-near-input'>Near</span>
                   <div className="input-group">
-                    <input onKeyUp={this.searchEnterPressed} id="search-bar" type="text" className="form-control" />
+                    <input onKeyUp={this.searchEnterPressed} id="search-bar" type="text" className="form-control" placeholder="sushi, cheap dinner, ramen" />
+                    <input onKeyUp={this.searchEnterPressed} id="near-search-bar" type="text" className="form-control" placeholder="address, city, zip" />
                     <span onClick={this.searchBusinesses} className="input-group-addon"><span  className="glyphicon glyphicon-search"></span></span>
                   </div>
                 </div>
@@ -96,6 +92,16 @@ class Header extends React.Component {
             </div>
           </div>
         </nav>
+
+        <div id="under-nav" className="container-fluid">
+          <div id="under-nav-bar" className="container-fluid">
+            <div id="under-nav-links">
+              <Link to="/businesses"><i className="fa fa-cutlery" aria-hidden="true" style={{fontsize: '2px'}}></i> Restaurants</Link>
+              <Link to="/business/new"><span id="sushi-icon"></span> Add Business</Link>
+              <Link to="/categories">Categories</Link>
+            </div>
+          </div>
+        </div>
       </header>
     )
   }

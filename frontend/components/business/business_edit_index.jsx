@@ -51,7 +51,6 @@ class BusinessEdit extends React.Component {
 
     if (business) {
       let id = uniqueId();
-      console.log(uniqueId());
       return (
         <BusinessEditForm key={id} business={business} processForm={processForm} getLatitudeAndLongitude={geocodeAddress} deleteBusiness={deleteBusiness} addressError={addressError} />);
     } else {

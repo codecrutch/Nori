@@ -55,13 +55,11 @@ class BusinessForm extends React.Component {
         if (res.status === 'ZERO_RESULTS') {
           this.props.addressError("Couldn't Find Address");
         } else {
-          console.log(res);
           let geolocation = res.results[0];
           //grabout lat and long and put into business
           business.address = geolocation.formatted_address;
           business.lat = geolocation.geometry.location.lat;
           business.lng = geolocation.geometry.location.lng;
-          console.log(business);
           this.props.processForm(business).then(
             (e) => this.props.history.replace("/")
           );
