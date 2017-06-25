@@ -3,7 +3,7 @@ import SessionForm from './session/session_form_container';
 import Header from './header/header';
 import Footer from './footer/footer';
 import { Route, Switch } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Notifications from './notifications';
 import LandingPage from './home/landing_page';
 import SearchResults from './business/business_index';
@@ -17,8 +17,8 @@ const App = () => (
     <Notifications />
     <Switch>
       <Route exact path="/" component={LandingPage} />
-      <Route exact path="/business/new" component={BusinessForm} />
-      <Route exact path="/business/:businessId/edit" component={BusinessEdit} />
+      <ProtectedRoute exact path="/business/new" component={BusinessForm} />
+      <ProtectedRoute exact path="/business/:businessId/edit" component={BusinessEdit} />
       <Route exact path="/businesses" component={SearchResults} />
       <AuthRoute path="/login" component={SessionForm} />
       <AuthRoute path="/signup" component={SessionForm} />

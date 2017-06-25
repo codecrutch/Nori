@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { businessToArray } from '../../util/selectors';
 import { fetchAllBusinesses } from '../../actions/business_actions';
 import BusinessListing from './business_listing';
+import uniqueId from '../../util/unique_id';
 
 const mapStateToProps = (state) => {
   return ({
@@ -21,12 +22,16 @@ class BusinessIndex extends React.Component {
     super(props);
   }
 
+  componentDidMount(){
+    this.props.fetchAllBusinesses();
+  }
+
   displayBusinesses(){
     let businesses = this.props.businesses;
     if (businesses.length === 0) {
       return <h1>No results</h1>;
     } else {
-      return businesses = businesses.map(business => <BusinessListing className='business-listing' key={business.id} business={business} />);
+      return businesses = businesses.map(business => <BusinessListing className='business-listing' key={uniqueId('business')} business={business} />);
     }
   }
 

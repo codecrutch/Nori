@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { editBusiness, fetchBusiness } from '../../actions/business_actions';
+import { editBusiness, fetchBusiness, deleteBusiness } from '../../actions/business_actions';
 import BusinessEditForm from './business_edit_form';
 import { geocodeAddress } from '../../util/map_api_util.js';
 import Notifications from 'react-notification-system-redux';
+import uniqueId from '../../util/unique_id';
 
 const mapStateToProps = (state, ownProps) => {
   return({
@@ -13,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return({
+    deleteBusiness: (id) => dispatch(deleteBusiness(id)),
     getBusiness: (id) => dispatch(fetchBusiness(id)),
     processForm: (business) => dispatch(editBusiness(business)),
     getLatitudeAndLongitude: (address) => geocodeAddress(address),
@@ -45,13 +47,16 @@ class BusinessEdit extends React.Component {
     let processForm = this.props.processForm;
     let getLatitudeAndLongitude = this.props.getLatitudeAndLongitude;
     let addressError = this.props.addressError;
+    let deleteBusiness = this.props.deleteBusiness;
 
     if (business) {
+      let id = uniqueId();
+      console.log(uniqueId());
       return (
-        <BusinessEditForm key={business.name} business={business} processForm={processForm} getLatitudeAndLongitude={geocodeAddress} addressError={addressError} />);
+        <BusinessEditForm key={id} business={business} processForm={processForm} getLatitudeAndLongitude={geocodeAddress} deleteBusiness={deleteBusiness} addressError={addressError} />);
     } else {
       return (
-        <h1>Loading ...</h1>
+        <h1 key={uniqueId()}>Loading ...</h1>
       );
     }
   }

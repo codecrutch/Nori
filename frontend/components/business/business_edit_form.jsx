@@ -25,6 +25,7 @@ class BusinessEditForm extends React.Component {
 
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.convertHoursToString = this.convertHoursToString.bind(this);
   }
 
@@ -93,101 +94,155 @@ class BusinessEditForm extends React.Component {
     this.setState({ [field]: value });
   }
 
+  handleDelete() {
+    let businessId = this.props.match.params.businessId;
+    let answer = confirm("Are you sure you want to delete this business?");
+    if (answer) {
+      this.props.deleteBusiness(businessId).then(
+        (e) => this.props.history.replace("/"),
+        (e) => this.props.history.replace("/")
+      );
+    }
+  }
+
   render(){
     let hoursPlaceholder = "ex. 6:00am - 5:45pm";
 
     return(
       <section className='business-form-layout container'>
         <section className='business-form-container row'>
-          <div className="form-left col-med-6 col-lg-6">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Emoji_u1f363.svg/2000px-Emoji_u1f363.svg.png" className="form-image"></img>
+          <div className="col-med-12 col-lg-12 text-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Emoji_u1f363.svg/2000px-Emoji_u1f363.svg.png" className="business-form-image"></img>
           </div>
 
-          <div className="form-right col-med-6 col-lg-6">
+            <form className="business-edit-form" onSubmit={(e) => this.handleSubmit(e)}>
+            <div className="form-right col-sm-6 col-med-6 col-lg-6 text-center">
             <p className='business-form-header'><span>Update {this.state.name}</span></p>
-            <form className="business-form-form" onSubmit={(e) => this.handleSubmit(e)}>
-              <input className="business-form-name" placeholder="Business Name" onChange={(e) => this.handleInput(e, "name")} value={this.state.name}/>
+              <label>Business Name
               <br />
-              <input className="business-form-address" placeholder="Address" onChange={(e) => this.handleInput(e, "address")} type='text' value={this.state.address}/>
+                <input className="business-form-name" placeholder="Business Name" onChange={(e) => this.handleInput(e, "name")} type='text' value={this.state.name}/>
+              </label>
               <br />
-              <input className="business-form-website-url" placeholder="Website URL" onChange={(e) => this.handleInput(e, "website_url")} type='text' value={this.state.website_url}/>
+              <label>Address
               <br />
-              <input className="business-form-business-img-url" placeholder="Business Image URL" onChange={(e) => this.handleInput(e, "business_img_url")} type='text' value={this.state.business_img_url}/>
+                <input className="business-form-address" placeholder="Address" onChange={(e) => this.handleInput(e, "address")} type='text' value={this.state.address}/>
+              </label>
+              <br />
+              <label>Website address
+              <br />
+                <input className="business-form-website-url" placeholder="Website URL" onChange={(e) => this.handleInput(e, "website_url")} type='text' value={this.state.website_url}/>
+              </label>
+              <br />
+              <label>Business Profile Image address
+              <br />
+                <input className="business-form-business-img-url" placeholder="Business Image URL" onChange={(e) => this.handleInput(e, "business_img_url")} type='text' value={this.state.business_img_url}/>
+              </label>
+              <br />
+              <label>Phone #
+              <br />
+              <input className="business-form-phone" placeholder="Phone Number" onChange={(e) => this.handleInput(e, "phone")} type='text' value={this.state.phone} />
+              </label>
               <br />
 
-              <label>$
+              <span>Average Price of Meal</span>
+              <br />
+              <label>
                 <input className="business-form-price-rating"
                   placeholder="Average Price"
                   onChange={(e) => this.handleInput(e, "price_rating")}
                   type='radio'
                   name="price_rating"
                   value={ 0 } />
+                  $
               </label>
 
-              <label>$$
+              <label>
                 <input className="business-form-price-rating"
                   placeholder="Average Price"
                   onChange={(e) => this.handleInput(e, "price_rating")}
                   type='radio'
                   name="price_rating"
                   value={ 1 } />
+                  $$
               </label>
 
-              <label>$$$
+              <label>
                 <input className="business-form-price-rating"
                   placeholder="Average Price"
                   onChange={(e) => this.handleInput(e, "price_rating")}
                   type='radio'
                   name="price_rating"
                   value={ 2 } />
+                  $$$
               </label>
 
-              <label>$$$$
+              <label>
                 <input className="business-form-price-rating"
                   placeholder="Average Price"
                   onChange={(e) => this.handleInput(e, "price_rating")}
                   type='radio'
                   name="price_rating"
                   value={ 3 } />
+                  $$$$
               </label>
 
-              <label>$$$$$
+              <label>
                 <input className="business-form-price-rating"
                   placeholder="Average Price"
                   onChange={(e) => this.handleInput(e, "price_rating")}
                   type='radio'
                   name="price_rating"
                   value={ 4 } />
+                  $$$$$
               </label>
 
-
               <br />
-              <input className="business-form-phone" placeholder="Phone Number" onChange={(e) => this.handleInput(e, "phone")} type='text' value={this.state.phone} />
-              <br />
+              </div>
 
-              <br />
-
-              <section id="hours">
-                <input className="mon" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "mon")} type='text' value={this.state.mon} />
+              <section id="hours" className="col-sm-6 col-med-6 col-lg-6 text-center">
+                <span>Hours of Operation</span>
                 <br />
-                <input className="tues" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "tues")} type='text' value={this.state.tues} />
+                <label>Monday
                 <br />
-                <input className="wed" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "wed")} type='text' value={this.state.wed} />
+                  <input className="mon" name="monday" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "mon")} type='text' value={this.state.mon} />
+                  </label>
                 <br />
-                <input className="thurs" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "thurs")} type='text' value={this.state.thurs} />
+                <label>Tuesday
                 <br />
-                <input className="fri" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "fri")} type='text' value={this.state.fri} />
+                  <input className="tues" name="tuesday" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "tues")} type='text' value={this.state.tues} />
+                  </label>
                 <br />
-                <input className="sat" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "sat")} type='text' value={this.state.sat} />
+                <label>Wednesday
                 <br />
-                <input className="sun" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "sun")} type='text' value={this.state.sun} />
+                  <input className="wed" name="wednesday" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "wed")} type='text' value={this.state.wed} />
+                  </label>
                 <br />
+                <label>Thursday
+                <br />
+                  <input className="thur" name="thursday" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "thurs")} type='text' value={this.state.thurs} />
+                  </label>
+                <br />
+                <label>Friday
+                <br />
+                  <input className="fri" name="friday" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "fri")} type='text' value={this.state.fri} />
+                  </label>
+                <br />
+                <label>Saturday
+                <br />
+                  <input className="sat" name="saturday" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "sat")} type='text' value={this.state.sat} />
+                  </label>
+                <br />
+                <label>Sunday
+                <br />
+                  <input className="sun" name="sunday" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "sun")} type='text' value={this.state.sun} />
+                  </label>
+                <br />
+                <input id="business-form-submit" className="btn btn-large btn-info" type="submit" value="Save Changes" />
               </section>
               <br />
 
-              <input id="business-form-submit" className="btn btn-large btn-info" type="submit" value="Save Changes" />
+              <button id="delete-business" className='btn btn-large btn-danger' onClick={this.handleDelete}>DELETE BUSINESS</button>
             </form>
-          </div>
         </section>
       </section>
     );

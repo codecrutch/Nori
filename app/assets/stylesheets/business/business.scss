@@ -87,3 +87,80 @@
 .media {
   min-width: 100%;
 }
+
+// Business Form
+
+#hours, .form-right {
+  margin-top: 15px;
+}
+
+.business-form-image {
+  width: 15%;
+}
+
+.form-left {
+  margin-bottom: 10px;
+}
+
+.business-edit-form, .business-new-form {
+  letter-spacing: 3px;
+  font-size: 14px;
+
+  input::placeholder {
+    font-family: inherit;
+    letter-spacing: 1.3px;
+    padding-left: 10px;
+    color: white;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+  }
+
+  input:focus {
+    outline: none !important;
+  }
+
+  input[type='text'] {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.15);
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    height: 40px;
+    width: 325px;
+    padding: 5px;
+  }
+
+  input[type="submit"] {
+    text-transform: capitalize;
+    margin-top: 10px;
+  }
+
+  input[type="submit"]:hover {
+  }
+
+  label {
+    margin-right: 10px;
+  }
+}
+
+#hours {
+  label {
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+  }
+  input[type='text'] {
+    width: 96px;
+    height: 30px;
+    font-size: 12px;
+    margin: 0px;
+  }
+
+  span {
+    margin-top: 25px;
+  }
+
+  #delete-business {
+    position: relative;
+  }
+}
