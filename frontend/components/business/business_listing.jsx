@@ -36,6 +36,7 @@ const BusinessListing = ({business}) => {
             <span className="business-review-count">{ business.review_count } reviews</span>
           </div>
           <p className = "business-price-categories"><span style={{color: 'green'}}>{ ratingConvert(business.price_rating) }</span> • { business.categories }</p>
+
         </div>
       <div className="business-item-contact col-xs-3">
         <p>{ business.address }</p>

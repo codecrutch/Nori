@@ -22,12 +22,14 @@ class Business < ActiveRecord::Base
   enum price_rating: %w(0 1 2 3 4)
   validates :price_rating, inclusion: { in: Business.price_ratings.keys }
 
-
-  def categories
-    "sushi, unagi, ramen"
-  end
+  has_many :category_listings
+  has_many :food_categories, through: :category_listings, source: :category
 
   def review_count
     rand(100)
+  end
+
+  def categories
+    food_categories.sample(2).map(&:name).join(', ')
   end
 end

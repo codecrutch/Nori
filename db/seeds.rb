@@ -3,6 +3,15 @@ User.create(
   password: "password"
 )
 
+Category.create( name: "Sushi", image_url: "http://beaverstail.com.au/images/tunaSushi.svg")
+Category.create( name: "Ramen", image_url: "https://d30y9cdsu7xlg0.cloudfront.net/png/114571-200.png")
+Category.create( name: "Breakfast", image_url: "category_breakfast.svg")
+Category.create( name: "Lunch", image_url: "category_lunch.svg")
+Category.create( name: "Dinner", image_url: "category_dinner.svg")
+Category.create( name: "Chinese", image_url: "category_chinese.svg")
+Category.create( name: "Japanese", image_url: "category_japanese.svg")
+Category.create( name: "Vietnamese", image_url: "category_vietnamese.svg")
+
 Business.create(
   name: "Johny's Luncheonette",
   address: "124 W 25th St, New York, NY 10001",
@@ -14,6 +23,8 @@ Business.create(
   lat: 40.744464,
   lng: -73.993063
 )
+
+CategoryListing.create(business_id: 1, category_id: 4)
 
 Business.create(
   name: "Latin Beet Kitchen",
@@ -27,6 +38,11 @@ Business.create(
   lng: -73.99129
 )
 
+CategoryListing.create(business_id: 2, category_id: 4)
+CategoryListing.create(business_id: 2, category_id: 5)
+
+
+
 Business.create(
   name: "Ajisen Ramen",
   address: "136 W 28th St, New York, NY 10001",
@@ -39,6 +55,9 @@ Business.create(
   lng: -73.9922244
 )
 
+CategoryListing.create(business_id: 3, category_id: 2)
+CategoryListing.create(business_id: 3, category_id: 7)
+
 Business.create(
   name: "Chop Shop II",
   address: "41 W 24th St New York, NY 10010",
@@ -50,3 +69,8 @@ Business.create(
   lat: 40.7433325,
   lng: -73.9911554
 )
+
+CategoryListing.create(business_id: 4, category_id: 1)
+CategoryListing.create(business_id: 4, category_id: 2)
+CategoryListing.create(business_id: 4, category_id: 7)
+CategoryListing.create(business_id: 4, category_id: 8)
