@@ -55,42 +55,48 @@ class Header extends React.Component {
   }
 
   render(){
-    return (
-      <header>
-        <nav className="navbar navbar-default" role="navigation">
-          <div className="container-fluid">
-            <div className="navbar-header">
-            </div>
+    if (this.props.location.pathname === "/") {
+      return (
+        <div />
+      );
+    } else {
+      return (
+        <header>
+          <nav className="navbar navbar-default" role="navigation">
+            <div className="container-fluid">
+              <div className="navbar-header">
+              </div>
 
-            <div className="navbar-collapse collapse" id="navbar-collapsible">
-              <form className="navbar-form text-center">
-                <Link className="navbar-brand" to="/">Nori</Link>
-                <div className="form-group" >
+              <div className="navbar-collapse collapse" id="navbar-collapsible">
+                <form className="navbar-form text-center">
+                  <Link className="navbar-brand" to="/">Nori</Link>
+                  <div className="form-group" >
                     <span id='psuedo-find-input'>Find</span>
                     <span id='psuedo-near-input'>Near</span>
-                  <div className="input-group">
-                    <input onKeyUp={this.searchEnterPressed} id="search-bar" type="text" className="form-control" placeholder="sushi, cheap dinner, ramen" />
-                    <input onKeyUp={this.searchEnterPressed} id="near-search-bar" type="text" className="form-control" placeholder="address, city, zip" />
-                    <span onClick={this.searchBusinesses} className="input-group-addon"><span  className="glyphicon glyphicon-search"></span></span>
+                    <div className="input-group">
+                      <input onKeyUp={this.searchEnterPressed} id="search-bar" type="text" className="form-control" placeholder="sushi, cheap dinner, ramen" />
+                      <input onKeyUp={this.searchEnterPressed} id="near-search-bar" type="text" className="form-control" placeholder="address, city, zip" />
+                      <span onClick={this.searchBusinesses} className="input-group-addon"><span  className="glyphicon glyphicon-search"></span></span>
+                    </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
 
-        <div id="under-nav" className="container-fluid">
-          <div id="under-nav-bar" className="container-fluid">
-            <div id="under-nav-links">
-              <Link to="/businesses"><i className="fa fa-cutlery" aria-hidden="true" style={{fontsize: '2px'}}></i> Restaurants</Link>
-              <Link to="/business/new"><span id="sushi-icon"></span> Add Business</Link>
-              <Link to="/categories">Categories</Link>
-              {this.sessionLinks()}
+          <div id="under-nav" className="container-fluid">
+            <div id="under-nav-bar" className="container-fluid">
+              <div id="under-nav-links">
+                <Link to="/businesses"><i className="fa fa-cutlery" aria-hidden="true" style={{fontsize: '2px'}}></i> Restaurants</Link>
+                <Link to="/business/new"><span id="sushi-icon"></span> Add Business</Link>
+                <Link to="/categories">Categories</Link>
+                {this.sessionLinks()}
+              </div>
             </div>
           </div>
-        </div>
-      </header>
-    )
+        </header>
+      )
+    }
   }
 }
 

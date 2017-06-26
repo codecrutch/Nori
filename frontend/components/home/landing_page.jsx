@@ -1,15 +1,67 @@
 import React from 'react';
+import SplashHero from './splash_hero';
+import FeaturedCards from './featured_cards';
+import CategoryCards from './category_cards';
+import { fetchAllBusinesses } from '../../actions/business_actions';
+import { fetchAllCategories } from '../../actions/category_actions';
+import { connect } from 'react-redux';
+import uniqueId from '../../util/unique_id';
+import { businessToArray, categoryToArray } from '../../util/selectors';
 
-const LandingPage = () => {
-  return (
-    <div className="container-fluid row">
-      <div className="col-lg-4"></div>
-      <div className="col-lg-4">
-        <h1>Home Page Will Be Here Soon!</h1>
+class LandingPage extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentWillMount(){
+    this.props.fetchAllBusinesses();
+    this.props.fetchAllCategories();
+  }
+
+  displayBusinesses(){
+    let businesses = this.props.businesses;
+    if (businesses.length === 0) {
+      return <h1></h1>;
+    } else {
+      return <FeaturedCards key={uniqueId('business')} businesses={businesses} />;
+    }
+  }
+
+  displayCategories(){
+    let categories = this.props.categories;
+    if (categories.length === 0) {
+      return <h1></h1>;
+    } else {
+      return <CategoryCards key={uniqueId('category')} categories={categories} />;
+    }
+  }
+
+  render(){
+    return (
+      <div className="container-fluid row">
+        <SplashHero />
+        {this.displayBusinesses()}
+        {this.displayCategories()}
       </div>
-      <div className="col-lg-4"></div>
-    </div>
-  );
+    );
+  }
 };
 
-export default LandingPage;
+const mapStateToProps = state => {
+  return({
+    businesses: businessToArray(state.businesses),
+    categories: categoryToArray(state.categories)
+  });
+};
+
+const mapDispatchToProps = dispatch => {
+  return ({
+    fetchAllBusinesses: () => dispatch(fetchAllBusinesses()),
+    fetchAllCategories: () => dispatch(fetchAllCategories())
+  });
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LandingPage);
