@@ -1,11 +1,11 @@
 import React from 'react';
 import CategoryCardItem from './category_card_item';
 
-const CategoryCards = ({cards}) => {
-  let card = cards.map(card => <CategoryCardItem key={category.id} category={category} />);
+const CategoryCards = ({categories}) => {
+  let allCategories = categories.map(category => <CategoryCardItem key={category.id} category={category} />);
   return (
     <div id="category-cards">
-      {cards}
+      {allCategories}
     </div>
   );
 }

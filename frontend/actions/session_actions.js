@@ -33,15 +33,15 @@ export const login = (user) => dispatch => {
       (user) => dispatch(receiveCurrentUser(user)),
       error => dispatch(Notifications.error(notify("ERROR", error.responseJSON)))
     );
-  };
+};
 
-export const logout = () => dispatch => (
-   APIUtil.logout()
+export const logout = () => dispatch => {
+  return APIUtil.logout()
     .then(
       () => dispatch(receiveCurrentUser(null)),
       error => dispatch(Notifications.error(notify("ERROR", error.responseJSON)))
-    )
-);
+    );
+};
 
 export const signup = (user) => dispatch => {
    return APIUtil.signup(user)

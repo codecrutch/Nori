@@ -21,7 +21,7 @@ export const receiveCategory = (category) => {
 export const fetchAllCategories = () => dispatch => {
   return CategoryAPIUtil.fetchAllCategories()
     .then(
-      (categories) => dispatch(receiveAllCategories),
+      (categories) => dispatch(receiveAllCategories(categories)),
       (errors) => console.log(errors)
     );
 };
@@ -29,7 +29,7 @@ export const fetchAllCategories = () => dispatch => {
 export const fetchCategory = (id) => dispatch => {
   return CategoryAPIUtil.fetchCategory(id)
     .then(
-      (category) => dispatch(receiveCategory),
+      (category) => dispatch(receiveCategory(category)),
       (errors) => console.log(errors)
     );
 };

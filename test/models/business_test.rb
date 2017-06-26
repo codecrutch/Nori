@@ -12,6 +12,8 @@
 #  lng              :float            not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  hours            :string           not null
+#  phone            :string           not null
 #
 
 require 'test_helper'

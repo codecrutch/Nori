@@ -17,7 +17,7 @@
 class Business < ActiveRecord::Base
 
   validates :name, :address, :hours, :price_rating, :website_url, :business_img_url,
-           :lat, :lng, :phone, presence: true
+    :lat, :lng, :phone, presence: true
   validates_uniqueness_of :name, scope: [:lat, :lng]
   enum price_rating: %w(0 1 2 3 4)
   validates :price_rating, inclusion: { in: Business.price_ratings.keys }
