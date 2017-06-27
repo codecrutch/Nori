@@ -11,7 +11,7 @@ const ratingConvert = (rating) => {
   return priceString;
 };
 
-const BusinessListing = ({business}) => {
+const SearchResultListing = ({business}) => {
   return (
     <div className="business-item row align-items-end">
       <section className="media col-xs-10 col-md-7">
@@ -48,4 +48,4 @@ const BusinessListing = ({business}) => {
   );
 };
 
-export default BusinessListing;
+export default SearchResultListing;

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { businessToArray } from '../../util/selectors';
 import { fetchAllBusinesses } from '../../actions/business_actions';
-import BusinessListing from './business_listing';
+import SearchResultListing from './search_result_listing';
 import uniqueId from '../../util/unique_id';
 
 const mapStateToProps = (state) => {
@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch) => {
   });
 };
 
-class BusinessIndex extends React.Component {
+class SearchResultIndex extends React.Component {
   constructor(props){
     super(props);
   }
@@ -34,7 +34,7 @@ class BusinessIndex extends React.Component {
     if (businesses.length === 0) {
       return <h1>No results</h1>;
     } else {
-      return businesses = businesses.map(business => <BusinessListing className='business-listing' key={uniqueId('business')} business={business} />);
+      return businesses = businesses.map(business => <SearchResultListing className='business-listing' key={uniqueId('business')} business={business} />);
     }
   }
 
@@ -58,4 +58,4 @@ class BusinessIndex extends React.Component {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BusinessIndex);
+)(SearchResultIndex);

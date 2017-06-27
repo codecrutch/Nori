@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Notifications from './notifications';
 import LandingPage from './home/landing_page';
-import SearchResults from './business/business_index';
+import SearchResults from './search/search_result_index';
 import BusinessForm from './business/business_form_container';
 import BusinessEdit from './business/business_edit_index';
 import FourZeroFour from './four_zero_four';
