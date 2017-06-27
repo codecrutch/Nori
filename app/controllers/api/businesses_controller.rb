@@ -19,7 +19,6 @@ class Api::BusinessesController < ApplicationController
 
   def show
     @business = Business.find(params[:id])
-    render json: @business
   end
 
   def update
