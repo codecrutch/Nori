@@ -7,6 +7,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Notifications from './notifications';
 import LandingPage from './home/landing_page';
 import SearchResults from './search/search_result_index';
+import BusinessPage from './business/business_page';
 import BusinessForm from './business/business_form_container';
 import BusinessEdit from './business/business_edit_index';
 import FourZeroFour from './four_zero_four';
@@ -18,6 +19,7 @@ const App = () => (
     <section id="" className="">
       <Switch>
         <Route exact path="/" component={LandingPage} />
+        <Route exact path="/business/:businessId(\d+)" component={BusinessPage}/>
         <ProtectedRoute exact path="/business/new" component={BusinessForm} />
         <ProtectedRoute exact path="/business/:businessId/edit" component={BusinessEdit} />
         <Route exact path="/businesses" component={SearchResults} />

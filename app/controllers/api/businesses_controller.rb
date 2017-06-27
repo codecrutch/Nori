@@ -22,7 +22,12 @@ class Api::BusinessesController < ApplicationController
   end
 
   def show
-    @business = Business.find(params[:id])
+    @business = Business.find_by_id(params[:id])
+    unless @business.nil?
+      render :show
+    else
+      render json: ["Business doesn't exist"], status: 404
+    end
   end
 
   def update

@@ -164,3 +164,20 @@
     position: relative;
   }
 }
+
+//// THIS IS FOR THE BUSINESS PAGE
+
+.business-page {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.business-page-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+#map {
+  width: 300px;
+  height: 200px;
+}

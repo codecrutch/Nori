@@ -14,14 +14,13 @@ const ratingConvert = (rating) => {
 const SearchResultListing = ({business}) => {
   return (
     <div className="business-item row align-items-end">
+    <Link to={`/business/${business.id}`}>
       <section className="media col-xs-10 col-md-7">
         <div className="media-left">
-          <Link to={`/businesses/${business.id}`}>
             <img className="business-item-photo media-object" src={ business.business_img_url }/>
-          </Link>
         </div>
         <div className="media-body">
-          <Link className="link" to={`/businesses/${business.id}`}><p className="business-name">{ business.name }</p></Link>
+          <p className="business-name">{ business.name }</p>
           <div className="rating-reviews">
             <StarRatingComponent
               name="rate2"
@@ -44,6 +43,7 @@ const SearchResultListing = ({business}) => {
         <p>{ business.phone }</p>
       </div>
       </section>
+      </Link>
     </div>
   );
 };
