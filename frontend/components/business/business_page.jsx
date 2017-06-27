@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { businessToArray } from '../../util/selectors';
-import { fetchBusiness } from '../../actions/business_actions';
+import { fetchBusiness, fetchAllBusinesses } from '../../actions/business_actions';
 import MapView from '../maps/single_business_map';
 import ImageView from './image_view.jsx';
 import Reviews from '../reviews/review_container';
@@ -15,13 +15,16 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    fetchBusiness: (id) => dispatch(fetchBusiness(id))
+    fetchBusiness: (id) => dispatch(fetchBusiness(id)),
+    fetchAllBusinesses: () => dispatch(fetchAllBusinesses())
   });
 };
 
 class BusinessPage extends React.Component {
   constructor(props){
     super(props);
+
+    this.state = {businesses: {}}
   }
 
   componentDidMount(){
@@ -34,6 +37,10 @@ class BusinessPage extends React.Component {
     if (oldBusinessId !== newBusinessId){
       this.props.fetchBusiness(newBusinessId);
     }
+  }
+
+  componentWillUnmount() {
+    this.props.fetchAllBusinesses();
   }
 
   displayBusiness(){
