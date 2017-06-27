@@ -59,8 +59,8 @@ export const addBusiness = (business) => {
 };
 
 // thunk async action creators
-export const fetchAllBusinesses = (query) => (dispatch) => {
-  return BusinessAPIUtil.fetchAllBusinesses(query)
+export const fetchAllBusinesses = (query, category) => (dispatch) => {
+  return BusinessAPIUtil.fetchAllBusinesses(query, category)
     .then(
       businesses => dispatch(receiveAllBusinesses(businesses)),
       errors => displayErrors(errors, dispatch)

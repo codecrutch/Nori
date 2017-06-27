@@ -1,7 +1,11 @@
 class Api::BusinessesController < ApplicationController
   def index
-    if params[:q]
+    if params[:q] && params[:category]
+
+    elsif params[:q]
       @businesses = Business.where("name ILIKE :search", search: "%#{params[:q]}%")
+    elsif params[:category]
+      @businesses = Category.find(params[:category]).businesses
     else
       @businesses = Business.all
     end

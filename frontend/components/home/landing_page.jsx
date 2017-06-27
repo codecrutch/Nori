@@ -14,13 +14,14 @@ class LandingPage extends React.Component {
   }
 
   componentWillMount(){
+    debugger
     this.props.fetchAllBusinesses();
     this.props.fetchAllCategories();
   }
 
   displayFeatured(){
     let businesses = this.props.businesses;
-    if (businesses.length === 0) {
+    if (businesses.length < 2) {
       return <h1></h1>;
     } else {
       return <FeaturedCards key={uniqueId('business')} businesses={businesses} />;
