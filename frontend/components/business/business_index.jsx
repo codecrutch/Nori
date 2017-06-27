@@ -23,7 +23,10 @@ class BusinessIndex extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchAllBusinesses();
+    if (this.props.businesses.length > 0) {
+    } else {
+      this.props.fetchAllBusinesses();
+    }
   }
 
   displayBusinesses(){
