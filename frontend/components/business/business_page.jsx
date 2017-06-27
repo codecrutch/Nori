@@ -66,7 +66,7 @@ class BusinessPage extends React.Component {
             <span className="business-review-count">{ business.review_count } reviews</span>
           </div>
 
-          <div>
+          <div className="business-page-upload">
             <span>Write a Review</span>
             <span><i className="fa fa-camera" aria-hidden="true"></i>&nbsp;Upload Image</span>
           </div>
