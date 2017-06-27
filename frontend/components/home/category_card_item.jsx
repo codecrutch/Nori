@@ -1,17 +1,34 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {fetchAllBusinessesByCategory } from '../../actions/business_actions';
 
-const CategoryCardItem = ({category}) => {
+const mapDispatchToProps = dispatch => {
+  return({
+    fetchAllBusinessesByCategory: (id) => dispatch(fetchAllBusinessesByCategory(id))
+  });
+}
+
+const CategoryCardItem = ({category, fetchAllBusinessesByCategory, history}) => {
+  const handleClick = (e) => {
+    console.log(category)
+    fetchAllBusinessesByCategory(category.id)
+    history.push('/businesses');
+  };
+
   return (
     <div className="col-xs-6 col-sm-4 col-md-4 col-lg-3">
-      <Link to={`/categories/${category.id}`} style={{ textDecoration: 'none' }}>
+      <span onClick={handleClick} style={{ textDecoration: 'none' }}>
         <section className="category">
           <img style={{ width: '60px', height: '60px' }} src={category.image_url}/>&nbsp;
           <span style={{ display: 'block'}}>{category.name}</span>
         </section>
-      </Link>
+      </span>
     </div>
   );
 };
 
-export default CategoryCardItem;
+export default connect(
+  null,
+  mapDispatchToProps
+)(withRouter(CategoryCardItem));

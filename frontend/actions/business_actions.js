@@ -67,6 +67,14 @@ export const fetchAllBusinesses = (query, category) => (dispatch) => {
     )
 };
 
+export const fetchAllBusinessesByCategory = (category) => (dispatch) => {
+  return BusinessAPIUtil.fetchAllBusinessesByCategory(category)
+    .then(
+      businesses => dispatch(receiveAllBusinesses(businesses)),
+      errors => displayErrors(errors, dispatch)
+    )
+};
+
 export const fetchBusiness = (id) => (dispatch) => {
   return BusinessAPIUtil.fetchBusiness(id)
     .then(

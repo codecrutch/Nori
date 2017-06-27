@@ -3,8 +3,17 @@ export const fetchAllBusinesses = (query) => {
     method: 'GET',
     url: '/api/businesses',
     data: { q: query }
+   });
+};
+
+export const fetchAllBusinessesByCategory = (category) => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/businesses',
+    data: { category: category}
   });
 };
+
 
 export const fetchBusiness = (id) => {
   return $.ajax({

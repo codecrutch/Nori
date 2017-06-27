@@ -2,7 +2,7 @@ import React from 'react';
 import SplashHero from './splash_hero';
 import FeaturedCards from './featured_cards';
 import CategoryCards from './category_cards';
-import { fetchAllBusinesses } from '../../actions/business_actions';
+import { fetchAllBusinesses, fetchBusinessesByCategory } from '../../actions/business_actions';
 import { fetchAllCategories } from '../../actions/category_actions';
 import { connect } from 'react-redux';
 import uniqueId from '../../util/unique_id';
@@ -21,7 +21,7 @@ class LandingPage extends React.Component {
 
   displayFeatured(){
     let businesses = this.props.businesses;
-    if (businesses.length < 2) {
+    if (businesses.length < 3) {
       return <h1></h1>;
     } else {
       return <FeaturedCards key={uniqueId('business')} businesses={businesses} />;
@@ -33,7 +33,7 @@ class LandingPage extends React.Component {
     if (categories.length === 0) {
       return <h1></h1>;
     } else {
-      return <CategoryCards key={uniqueId('category')} categories={categories} />;
+      return <CategoryCards key={uniqueId('category')} categories={categories}/>;
     }
   }
 
@@ -57,7 +57,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    fetchAllBusinesses: () => dispatch(fetchAllBusinesses()),
+    fetchAllBusinesses: (query) => dispatch(fetchAllBusinesses(query)),
+    fetchBusinessesByCategory: (id) => dispatch(fetchBusinessesByCategory(id)),
     fetchAllCategories: () => dispatch(fetchAllCategories())
   });
 };
