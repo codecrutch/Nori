@@ -22,7 +22,7 @@ class Business < ActiveRecord::Base
   enum price_rating: %w(0 1 2 3 4)
   validates :price_rating, inclusion: { in: Business.price_ratings.keys }
 
-  has_many :category_listings
+  has_many :category_listings, dependent: :destroy
   has_many :food_categories, through: :category_listings, source: :category
 
   def review_count

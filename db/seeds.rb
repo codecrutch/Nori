@@ -5,12 +5,12 @@ User.create(
 
 Category.create( name: "Sushi", image_url: "http://beaverstail.com.au/images/tunaSushi.svg")
 Category.create( name: "Ramen", image_url: "https://d30y9cdsu7xlg0.cloudfront.net/png/114571-200.png")
-Category.create( name: "Breakfast", image_url: "category_breakfast.svg")
-Category.create( name: "Lunch", image_url: "category_lunch.svg")
-Category.create( name: "Dinner", image_url: "category_dinner.svg")
-Category.create( name: "Chinese", image_url: "category_chinese.svg")
-Category.create( name: "Japanese", image_url: "category_japanese.svg")
-Category.create( name: "Vietnamese", image_url: "category_vietnamese.svg")
+Category.create( name: "Breakfast", image_url: "http://www.svgcuts.com/fsvgfotw/2012/svgcuts_2012_01_13.png")
+Category.create( name: "Lunch", image_url: "https://www.svgimages.com/svg-image/s2/lunch-256x256.png")
+Category.create( name: "Dinner", image_url: "http://lokaaledel.nl/wp-content/themes/lokaal-edel/assets/img/illustration-dinner.svg")
+Category.create( name: "Chinese", image_url: "http://clipartist.net/Holidays/Chinese_New_Year/Snake/chinese_fast_food_chinabox_chinese_new_year.svg")
+Category.create( name: "Japanese", image_url: "http://2.bp.blogspot.com/-mJvYFz_VYhI/UGSSXtVD3sI/AAAAAAAAAGk/5u_O7EH5H90/s1600/12456948171194366574johnny_automatic_bowl_of_rice.svg.hi.png")
+Category.create( name: "Vietnamese", image_url: "http://static.squarespace.com/static/52212fbbe4b0b5449b4b9c8e/t/5222b849e4b0bf0a6aa7b290/1406199349989/?format=400w")
 
 Business.create(
   name: "Johny's Luncheonette",

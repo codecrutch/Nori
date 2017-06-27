@@ -2,9 +2,7 @@ import React from 'react';
 
 const FourZeroFour = (props) => {
   return (
-    <section className="jumbotron text-center" style={{
-      height: '100vh',
-      margin: '-35px'
+    <section className="text-center jumbotron" style={{
     }}>
     <h1 style={{
       margin: '30px'

@@ -18,7 +18,7 @@ class LandingPage extends React.Component {
     this.props.fetchAllCategories();
   }
 
-  displayBusinesses(){
+  displayFeatured(){
     let businesses = this.props.businesses;
     if (businesses.length === 0) {
       return <h1></h1>;
@@ -38,9 +38,9 @@ class LandingPage extends React.Component {
 
   render(){
     return (
-      <div className="container-fluid row">
+      <div>
         <SplashHero />
-        {this.displayBusinesses()}
+        {this.displayFeatured()}
         {this.displayCategories()}
       </div>
     );

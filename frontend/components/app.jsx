@@ -15,15 +15,17 @@ const App = () => (
   <div>
     <Header />
     <Notifications />
-    <Switch>
-      <Route exact path="/" component={LandingPage} />
-      <ProtectedRoute exact path="/business/new" component={BusinessForm} />
-      <ProtectedRoute exact path="/business/:businessId/edit" component={BusinessEdit} />
-      <Route exact path="/businesses" component={SearchResults} />
-      <AuthRoute path="/login" component={SessionForm} />
-      <AuthRoute path="/signup" component={SessionForm} />
-      <Route path="*" component={FourZeroFour} />
-    </Switch>
+    <section id="" className="">
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <ProtectedRoute exact path="/business/new" component={BusinessForm} />
+        <ProtectedRoute exact path="/business/:businessId/edit" component={BusinessEdit} />
+        <Route exact path="/businesses" component={SearchResults} />
+        <AuthRoute path="/login" component={SessionForm} />
+        <AuthRoute path="/signup" component={SessionForm} />
+        <Route path="*" component={FourZeroFour} />
+      </Switch>
+    </section>
     <Footer />
   </div>
 );
