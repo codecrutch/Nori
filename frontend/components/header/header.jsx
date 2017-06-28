@@ -89,7 +89,6 @@ class Header extends React.Component {
               <div id="under-nav-links">
                 <Link to="/businesses"><i className="fa fa-cutlery" aria-hidden="true" style={{fontsize: '2px'}}></i> Restaurants</Link>
                 <Link to="/business/new"><span id="sushi-icon"></span> Add Business</Link>
-                <Link to="/categories">Categories</Link>
                 {this.sessionLinks()}
               </div>
             </div>
