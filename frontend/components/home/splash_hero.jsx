@@ -26,7 +26,7 @@ class SplashHero extends React.Component {
   }
 
   searchBusinesses(){
-    let query = document.getElementById('search-bar').value;
+    let query = document.getElementById('splash-search-bar').value;
     this.props.fetchAllBusinesses(query);
     this.props.history.push('/businesses');
   }
