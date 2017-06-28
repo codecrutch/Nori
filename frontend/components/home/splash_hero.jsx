@@ -48,8 +48,8 @@ class SplashHero extends React.Component {
     } else {
       return (
         <span>
-          <Link id="signup" to='/signup'>Signup</Link>
           <Link id="log" to='/login'>Login</Link>
+          <Link id="signup" to='/signup'>Signup</Link>
         </span>
       );
     }
@@ -59,7 +59,6 @@ class SplashHero extends React.Component {
     return (
       <div>
         <div className="splash-hero">
-        <div className="splash-overlay" />
           <div className="splash-hero-inner">
             <div className="splash-herok-nav"></div>
             <ul className="splash-left-nav">
@@ -73,7 +72,7 @@ class SplashHero extends React.Component {
             <div className="splash-logo">Nori</div>
 
             <div className="splash-search-bar">
-              <form className="navbar-form text-center">
+              <form className="splash-navbar-form navbar-form text-center">
                 <div className="form-group" >
                   <span id='psuedo-find-input'>Find</span>
                   <span id='psuedo-near-input'>Near</span>

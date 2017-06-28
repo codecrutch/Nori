@@ -42,7 +42,7 @@ input {
 }
 
 .splash-hero {
-  background-image: url("https://sushiref.com/wp-content/uploads/2016/10/cropped-Sushi-Header-CustomSize.jpg");
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://sushiref.com/wp-content/uploads/2016/10/cropped-Sushi-Header-CustomSize.jpg");
   padding-top: 30px;
   min-height: 470px;
   background-color: #333;
@@ -60,19 +60,51 @@ input {
   a {
     font-size: 14px;
     color: white;
+    padding: 10px;
+    top: 20px;
+    text-decoration: none;
+    padding: 7px 24px 8px;
+    font-size: 18px;
+    margin: 4px;
+  }
+
+  a:hover {
+    border-bottom: 2px solid white;
   }
 }
 
 .splash-left-nav {
   float: left;
+  padding: 0;
 }
 
 .splash-right-nav {
   float: right;
-  a {
-    padding: 10px;
-    top: 20px;
-  }
+  padding: 0;
+}
+#signup {
+  font-size: 15px;
+  border: 2px solid white;
+  border-radius: 4px;
+  font-weight: bolder;
+  font-family: sans-serif;
+}
+
+#signup:hover {
+  background: white;
+  color: #666;
+}
+.splash-navbar-form {
+  width: auto;
+  border: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  position: relative;
+  left: -42px;
 }
 
 .splash-logo {
@@ -80,7 +112,6 @@ input {
   font-size: 50px;
   font-family: 'Satisfy';
   top: 131px;
-  left: 27px;
   position: relative;
   color: snow;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -95,19 +126,7 @@ input {
 .splash-hero-inner {
   margin: 0 auto;
   z-index: 3;
-  z-index: 3;
-  width: 716px;
-  height: 501px;
-  left: 251px;
-}
-
-.splash-overlay {
-  height: 531px;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: rgba(70, 72, 82, 0.5);
+  width: 900px;
 }
 
 .card-img-top {
