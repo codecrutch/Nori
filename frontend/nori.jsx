@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import * as actions from './actions/session_actions';
+import * as rev from './actions/review_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -22,6 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+    window.fetchReview = rev.fetchReview;
+    window.fetchAllReviews = rev.fetchAllReviews;
+    window.deleteReview = rev.deleteReview;
   // END TESTING
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);

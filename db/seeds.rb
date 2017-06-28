@@ -1,4 +1,4 @@
-User.create(
+user = User.create(
   username: "Guest",
   password: "password"
 )
@@ -55,6 +55,7 @@ sushi = Business.new(
 )
 sushi.business_image = File.open("app/assets/images/ajisen.jpg")
 sushi.save
+Review.create(business_id: 1, user_id: 1, title: "Mixed feelings", description: "Not bad.  Had a rude waiter. Fish was fresh", rating: 2)
 
 CategoryListing.create(business_id: sushi.id, category_id: 2)
 CategoryListing.create(business_id: sushi.id, category_id: 7)
@@ -72,6 +73,7 @@ sushi = Business.new(
 sushi.business_image = File.open("app/assets/images/chopshop.jpg")
 sushi.save
 
+Review.create(business_id: sushi.id, user_id: user.id, title: "Awesome sushi", description: "A nice place to grab some zi", rating: 3)
 CategoryListing.create(business_id: sushi.id, category_id: 1)
 CategoryListing.create(business_id: sushi.id, category_id: 2)
 CategoryListing.create(business_id: sushi.id, category_id: 7)
