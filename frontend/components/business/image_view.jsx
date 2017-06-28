@@ -5,9 +5,27 @@ class ImageView extends React.Component {
     super(props);
   }
 
+  displayImages(){
+    let business = this.props.business;
+
+    if (business.images) {
+      return (
+        <div>
+          <img src={images[0]}/>
+        </div>
+      );
+    } else {
+      return (
+        <h1>No Images</h1>
+      );
+    };
+  }
+
   render(){
     return (
-      <h3>This is where the images will be</h3>
+      <div>
+        {this.displayImages()}
+      </div>
     );
   };
 }

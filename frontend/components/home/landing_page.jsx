@@ -14,7 +14,6 @@ class LandingPage extends React.Component {
   }
 
   componentWillMount(){
-    debugger
     this.props.fetchAllBusinesses();
     this.props.fetchAllCategories();
   }

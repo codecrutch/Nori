@@ -55,6 +55,7 @@ input {
   position: relative;
   display: flex;
   justify-content: space-between;
+  min-width: 630px;
 
   a {
     font-size: 14px;
@@ -92,7 +93,7 @@ input {
 }
 
 .splash-hero-inner {
-  position: absolute;
+  margin: 0 auto;
   z-index: 3;
   z-index: 3;
   width: 716px;
@@ -101,7 +102,7 @@ input {
 }
 
 .splash-overlay {
-  height: 470px;
+  height: 531px;
   width: 100%;
   position: absolute;
   top: 0;

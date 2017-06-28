@@ -59,6 +59,7 @@ class SplashHero extends React.Component {
     return (
       <div>
         <div className="splash-hero">
+        <div className="splash-overlay" />
           <div className="splash-hero-inner">
             <div className="splash-herok-nav"></div>
             <ul className="splash-left-nav">
@@ -89,7 +90,6 @@ class SplashHero extends React.Component {
             <div className="splash-search-bar"></div>
           </div>
         </div>
-        <div className="splash-overlay" />
       </div>
     );
   }
