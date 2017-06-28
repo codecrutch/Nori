@@ -3,7 +3,7 @@
 <head>
   <title>Nori</title>
   <%= stylesheet_link_tag    'application',"https://fonts.googleapis.com/css?family=Bubbler+One|Mogra|Poiret+One|Satisfy", media: 'all' %>
-  <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_key}' %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_key}" %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
