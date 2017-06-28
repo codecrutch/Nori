@@ -13,6 +13,7 @@ class BusinessForm extends React.Component {
       price_rating: "0",
       website_url: "",
       business_img_url: "",
+      business_image: null,
       mon: "6am-10pm",
       tues: "6am-10pm",
       wed: "6am-10pm",
@@ -46,10 +47,28 @@ class BusinessForm extends React.Component {
     }
   }
 
+  updateFile(e){
+    let file = e.currentTarget.files[0];
+    let fileReader = new FileReader();
+    fileReader.onloadend = function(){
+      this.setState({ business_image: file, business_img_url: fileReader.result });
+    }.bind(this);
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    const business = Object.assign({}, this.state);
-    business.hours = this.convertHoursToString();
+    let formData = new FormData();
+    formData.append("business[name]", this.state.name);
+    formData.append("business[phone]", this.state.phone);
+    formData.append("business[hours]", this.convertHoursToString());
+    formData.append("business[price_rating]", this.state.price_rating);
+    formData.append("business[website_url]", this.state.website_url);
+    formData.append("business[business_image]", this.state.business_image);
+
     this.props.getLatitudeAndLongitude(this.state.address).then(
       (res) => {
         if (res.status === 'ZERO_RESULTS') {
@@ -57,10 +76,11 @@ class BusinessForm extends React.Component {
         } else {
           let geolocation = res.results[0];
           //grabout lat and long and put into business
-          business.address = geolocation.formatted_address;
-          business.lat = geolocation.geometry.location.lat;
-          business.lng = geolocation.geometry.location.lng;
-          this.props.processForm(business).then(
+          formData.append("business[address]", geolocation.formatted_address);
+          formData.append("business[lat]", geolocation.geometry.location.lat)
+          formData.append("business[lng]", geolocation.geometry.location.lng)
+
+          this.props.processForm(formData).then(
             (e) => this.props.history.replace("/")
           );
         }
@@ -87,6 +107,7 @@ class BusinessForm extends React.Component {
 
   handleInput(event, field){
     let value = event.currentTarget.value;
+    console.log(value);
     this.setState({ [field]: value });
   }
 
@@ -94,7 +115,7 @@ class BusinessForm extends React.Component {
     let hoursPlaceholder = "ex. 6:00am - 5:45pm";
 
     return(
-      <section className='business-form-layout container'>
+      <section className='business-form-layout container' style={{ display: 'flex', width: '900px'}}>
         <section className='business-form-container row'>
           <div className="form-left col-med-12 col-lg-12 text-center">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Emoji_u1f363.svg/2000px-Emoji_u1f363.svg.png" className="business-form-image"></img>
@@ -109,7 +130,9 @@ class BusinessForm extends React.Component {
               <br />
               <input className="business-form-website-url" placeholder="Website URL" onChange={(e) => this.handleInput(e, "website_url")} type='text' />
               <br />
-              <input className="business-form-business-img-url" placeholder="Business Image URL" onChange={(e) => this.handleInput(e, "business_img_url")} type='text' />
+              <input className="business-form-business-img-url" placeholder="Business Image" onChange={(e) => this.updateFile(e)} type='file' />
+              <br/>
+              <img src={this.state.business_img_url} style={{ width: '90px', height: '90px', borderRadius: '5px'}}/>
               <br />
               <input className="business-form-phone" placeholder="Phone Number" onChange={(e) => this.handleInput(e, "phone")} type='text' />
               <br />

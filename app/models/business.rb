@@ -16,7 +16,7 @@
 
 class Business < ActiveRecord::Base
 
-  validates :name, :address, :hours, :price_rating, :website_url, :business_img_url,
+  validates :name, :address, :hours, :price_rating, :website_url,
     :lat, :lng, :phone, presence: true
   validates_uniqueness_of :name, scope: [:lat, :lng]
   enum price_rating: %w(0 1 2 3 4)
@@ -25,6 +25,10 @@ class Business < ActiveRecord::Base
   has_many :category_listings, dependent: :destroy
   has_many :food_categories, through: :category_listings, source: :category
 
+  has_attached_file :business_image,
+      styles: { medium: "300x300", thumb: "90x90" },
+      default_url: "/assets/missing.png"
+  validates_attachment_content_type :business_image, content_type: /\Aimage\/.*\Z/
   def review_count
     rand(100)
   end

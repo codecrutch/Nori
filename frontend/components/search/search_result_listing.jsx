@@ -17,7 +17,7 @@ const SearchResultListing = ({business}) => {
     <Link to={`/business/${business.id}`}>
       <section className="media col-xs-10 col-md-7">
         <div className="media-left">
-            <img className="business-item-photo media-object" src={ business.business_img_url }/>
+            <img className="business-item-photo media-object" src={ business.business_image_url }/>
         </div>
         <div className="media-body">
           <p className="business-name">{ business.name }</p>

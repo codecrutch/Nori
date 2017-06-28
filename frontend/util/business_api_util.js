@@ -33,8 +33,11 @@ export const deleteBusiness = (id) => {
 export const createBusiness = (business) => {
   return $.ajax({
     method: 'POST',
+    dataType: "json",
+    contentType: false,
+    processData: false,
     url: '/api/businesses',
-    data: { business }
+    data: business
   });
 };
 

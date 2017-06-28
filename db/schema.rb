@@ -11,23 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626154119) do
+ActiveRecord::Schema.define(version: 20170628155447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "businesses", force: :cascade do |t|
-    t.string   "name",                         null: false
-    t.string   "address",                      null: false
-    t.integer  "price_rating",     default: 0, null: false
-    t.string   "website_url",                  null: false
-    t.string   "business_img_url",             null: false
-    t.float    "lat",                          null: false
-    t.float    "lng",                          null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.string   "hours",                        null: false
-    t.string   "phone",                        null: false
+    t.string   "name",                                    null: false
+    t.string   "address",                                 null: false
+    t.integer  "price_rating",                default: 0, null: false
+    t.string   "website_url",                             null: false
+    t.float    "lat",                                     null: false
+    t.float    "lng",                                     null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "hours",                                   null: false
+    t.string   "phone",                                   null: false
+    t.string   "business_image_file_name"
+    t.string   "business_image_content_type"
+    t.integer  "business_image_file_size"
+    t.datetime "business_image_updated_at"
   end
 
   add_index "businesses", ["name", "lat", "lng"], name: "index_businesses_on_name_and_lat_and_lng", unique: true, using: :btree

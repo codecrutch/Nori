@@ -13,6 +13,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem "font-awesome-rails"
 gem 'bootstrap-sass'
 gem 'figaro'
+gem 'paperclip'
+gem 'aws-sdk'
 
 group :development, :test do
   gem 'byebug'
