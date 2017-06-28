@@ -82,7 +82,7 @@ input {
   float: right;
   padding: 0;
 }
-#signup {
+.splash-signup {
   font-size: 15px;
   border: 2px solid white;
   border-radius: 4px;
@@ -90,7 +90,7 @@ input {
   font-family: sans-serif;
 }
 
-#signup:hover {
+.splash-signup:hover {
   background: white;
   color: #666;
 }

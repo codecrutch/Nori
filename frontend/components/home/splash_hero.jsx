@@ -49,7 +49,7 @@ class SplashHero extends React.Component {
       return (
         <span>
           <Link id="log" to='/login'>Login</Link>
-          <Link id="signup" to='/signup'>Signup</Link>
+          <Link className="splash-signup" id="signup" to='/signup'>Signup</Link>
         </span>
       );
     }
@@ -70,23 +70,20 @@ class SplashHero extends React.Component {
             </ul>
 
             <div className="splash-logo">Nori</div>
-
             <div className="splash-search-bar">
-              <form className="splash-navbar-form navbar-form text-center">
+              <form className="navbar-form splash-navbar-form text-center">
                 <div className="form-group" >
-                  <span id='psuedo-find-input'>Find</span>
-                  <span id='psuedo-near-input'>Near</span>
+                  <span id='splash-psuedo-find-input'>Find</span>
+                  <span id='splash-psuedo-near-input'>Near</span>
                   <div className="input-group">
-                    <input onKeyUp={this.searchEnterPressed} id="search-bar" type="text" className="form-control" placeholder="sushi, cheap dinner, ramen" />
-                    <input onKeyUp={this.searchEnterPressed} id="near-search-bar" type="text" className="form-control" placeholder="address, city, zip" />
-                    <span onClick={this.searchBusinesses} className="input-group-addon"><span  className="glyphicon glyphicon-search"></span></span>
+                    <input onKeyUp={this.searchEnterPressed} id="splash-search-bar" type="text" className="form-control" placeholder="sushi, cheap dinner, ramen" />
+                    <input onKeyUp={this.searchEnterPressed} id="splash-near-search" type="text" className="form-control" placeholder="address, city, zip" />
+                    <span onClick={this.searchBusinesses} className="splash-input-group-addon"><span  className="search-input-btn glyphicon glyphicon-search"></span></span>
                   </div>
                 </div>
               </form>
             </div>
 
-            <div className="splash-logo text-centered"></div>
-            <div className="splash-search-bar"></div>
           </div>
         </div>
       </div>
