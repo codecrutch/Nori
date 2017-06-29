@@ -4,6 +4,7 @@ import { businessToArray } from '../../util/selectors';
 import { fetchAllBusinesses } from '../../actions/business_actions';
 import SearchResultListing from './search_result_listing';
 import uniqueId from '../../util/unique_id';
+import MultiMap from '../maps/multi_map';
 
 const mapStateToProps = (state) => {
   return ({
@@ -46,7 +47,7 @@ class SearchResultIndex extends React.Component {
             {this.displayBusinesses()}
           </section>
           <section className="businesses-map col-lg-4 col-xs-12 col-sm-12 col-md-6">
-            Map
+            <MultiMap businesses={this.props.businesses} />
           </section>
         </div>
       </section>
