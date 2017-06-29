@@ -46,6 +46,16 @@ class MarkerManager {
       el.style["color"] = "#c22020";
       el.style["border-radius"] = "5px";
     });
+
+    el.addEventListener('mouseover', () => {
+      this.map.panTo(position);
+      infowindow.open(map, marker);
+    });
+
+    el.addEventListener('mouseout', () => {
+      infowindow.close(map, marker);
+    });
+
     marker.addListener('mouseout', () => {
       infowindow.close(map, marker);
       let el = document.getElementById(`${business.name}`);
@@ -53,6 +63,7 @@ class MarkerManager {
       el.style["color"] = "inherit";
       el.style["border-radius"] = "0";
     });
+
     this.markers[marker.businessId] = marker;
   }
 
