@@ -46,6 +46,6 @@ class Business < ActiveRecord::Base
   end
 
   def categories
-    food_categories.sample(2).map(&:name).join(', ')
+    food_categories.sample(3).map(&:name).join(', ')
   end
 end

@@ -21,7 +21,7 @@ class SingleBusinessMap extends React.Component {
     var marker = new google.maps.Marker({
       position: position,
       map: this.map,
-      icon: "https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_styleguide/118ff475a341/assets/img/logos/favicon.ico"
+      icon: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
     })
 
     let contentString = `<div><strong>${business.name}</strong></div>` +

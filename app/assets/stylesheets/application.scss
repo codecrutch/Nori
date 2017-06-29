@@ -122,9 +122,6 @@ input {
   text-align: center;
   font-size: 50px;
   font-family: 'Satisfy';
-  top: 131px;
-  position: absolute;
-  right: 696px;
   color: snow;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
@@ -258,4 +255,8 @@ input {
   border-left: 0.3px solid #bbb;
   box-sizing: border-box;
   padding-left: 50px;
+}
+
+#search-bar-button:hover {
+  background: darken(rgba(168, 36, 36, 0.99), 10) !important;
 }

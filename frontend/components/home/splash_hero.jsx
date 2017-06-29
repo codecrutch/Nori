@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchAllBusinesses } from '../../actions/business_actions';
 import { logout } from '../../actions/session_actions';
+import SearchBar from '../search/search_bar';
 
 const mapStateToProps = state => {
   return({
@@ -20,21 +21,6 @@ const mapDispatchToProps = dispatch => {
 class SplashHero extends React.Component {
   constructor(props){
     super(props);
-
-    this.searchBusinesses = this.searchBusinesses.bind(this);
-    this.searchEnterPressed = this.searchEnterPressed.bind(this);
-  }
-
-  searchBusinesses(){
-    let query = document.getElementById('splash-search-bar').value;
-    this.props.fetchAllBusinesses(query);
-    this.props.history.push('/businesses');
-  }
-
-  searchEnterPressed(event){
-    if (event.keyCode == 13) {
-      this.searchBusinesses();
-    }
   }
 
   sessionLinks() {
@@ -68,21 +54,10 @@ class SplashHero extends React.Component {
             <ul className="splash-right-nav">
               {this.sessionLinks()}
             </ul>
-
+            <div style={{ minHeight: '100px' }} />
             <div className="splash-logo">Nori</div>
-            <div className="splash-search-bar">
-              <form className="navbar-form splash-navbar-form text-center">
-                <div className="form-group" >
-                  <span id='splash-psuedo-find-input'>Find</span>
-                  <span id='splash-psuedo-near-input'>Near</span>
-                  <div className="input-group">
-                    <input onKeyUp={this.searchEnterPressed} id="splash-search-bar" type="text" className="form-control" placeholder="sushi, cheap dinner, ramen" />
-                    <input onKeyUp={this.searchEnterPressed} id="splash-near-search" type="text" className="form-control" placeholder="address, city, zip" />
-                    <span onClick={this.searchBusinesses} className="splash-input-group-addon"><span  className="search-input-btn glyphicon glyphicon-search"></span></span>
-                  </div>
-                </div>
-              </form>
-            </div>
+            <div style={{ minHeight: '100px' }} />
+            <SearchBar fetchAllBusinesses={this.props.fetchAllBusinesses} />
 
           </div>
         </div>
