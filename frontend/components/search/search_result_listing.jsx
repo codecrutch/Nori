@@ -26,7 +26,7 @@ const SearchResultListing = ({business}) => {
               name="rate2"
               editing={false}
               starCount={5}
-              value={3.5}
+              value={business.overall_rating}
               renderStarIcon={(index, value) => {
                 return <span className={index <= value ? 'fa fa-star' : 'fa fa-star-o'} />;
               }}
@@ -37,7 +37,7 @@ const SearchResultListing = ({business}) => {
           <p className = "business-price-categories"><span style={{color: 'green'}}>{ ratingConvert(business.price_rating) }</span> • { business.categories }</p>
 
         </div>
-      <div className="business-item-contact col-xs-3">
+      <div className="business-item-contact">
         <p>{ business.address }</p>
         <p>{ business.city_params }</p>
         <p>{ business.phone }</p>

@@ -1,7 +1,8 @@
 import {
   RECEIVE_ALL_REVIEWS,
   RECEIVE_REVIEW,
-  REMOVE_REVIEW
+  REMOVE_REVIEW,
+  CREATE_REVIEW
 } from '../actions/review_actions';
 import merge from 'lodash/merge';
 
@@ -17,6 +18,11 @@ const ReviewReducer = (state = {}, action) => {
     case REMOVE_REVIEW:
       newState = merge({}, state);
       delete newState[action.review.id];
+      return newState;
+    case CREATE_REVIEW:
+      review = action.review;
+      newState = merge({}, state);
+      newState[review.id] = review;
       return newState;
     default:
       return state;

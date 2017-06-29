@@ -10,8 +10,8 @@ const FeaturedCards = ({businesses}) => {
   }
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-around'}}>
-        <div className="card-deck">
+    <div style={{ display: 'flex', justifyContent: 'center'}}>
+        <div className="card-deck" style={{ width: '900px' }}>
           {cards}
         </div>
     </div>

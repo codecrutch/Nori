@@ -1,12 +1,6 @@
 .search-results {
 }
 
-.business-results {
-  position: relative;
-  left: 20%;
-
-}
-
 .business-item-photo {
   width: 90px;
   height: 90px;
@@ -18,7 +12,7 @@
 .business-item-contact {
   position: relative;
   top: -94px;
-  left: 265px;
+  left: 394px;
   font-size: 14px;
 }
 
@@ -42,7 +36,7 @@
 
 .business-review-count {
   position: relative;
-  top: -12px;
+  top: -1px;
   margin-left: 10px;
 }
 
@@ -59,7 +53,11 @@
   width: 300px;
   border: 1px solid black;
   position: relative;
-  left: 20%;
+  left: 24%;
+}
+
+.media, .media-body {
+  overflow: none !important;
 }
 
 @media (max-width: 450px) {

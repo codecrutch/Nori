@@ -22,7 +22,7 @@ const FeaturedCardItem = ({business}) => {
               name="rate2"
               editing={false}
               starCount={5}
-              value={4.5}
+              value={business.overall_rating}
               renderStarIcon={(index, value) => {
                 return <span className={index <= value ? 'fa fa-star' : 'fa fa-star-o'} />;
               }}

@@ -32,4 +32,5 @@ en:
         lat: "Latitude"
         lng: "Longitude"
         business_img_url: "Business image"
-
+      review:
+        business_id: "Sorry."

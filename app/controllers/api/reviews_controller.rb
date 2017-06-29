@@ -1,6 +1,6 @@
 class Api::ReviewsController < ApplicationController
   def index
-    @reviews = Business.includes(:reviews).find(params[:business_id]).reviews
+    @reviews = Business.includes(:reviews).find(params[:business_id]).reviews.includes(:user)
     render :index
   end
 
@@ -14,7 +14,7 @@ class Api::ReviewsController < ApplicationController
     if @review.save
       render :show
     else
-      render json: ['Invalid review parameters'], status: 422
+      render json: @review.errors.full_messages, status: 422
     end
   end
 

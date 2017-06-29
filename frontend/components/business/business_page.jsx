@@ -23,8 +23,6 @@ const mapDispatchToProps = dispatch => {
 class BusinessPage extends React.Component {
   constructor(props){
     super(props);
-
-    this.state = {businesses: {}}
   }
 
   componentDidMount(){
@@ -56,7 +54,7 @@ class BusinessPage extends React.Component {
                 name="rate2"
                 editing={false}
                 starCount={5}
-                value={3.5}
+                value={business.overall_rating}
                 renderStarIcon={(index, value) => {
                   return <span className={index <= value ? 'fa fa-star' : 'fa fa-star-o'} />;
                 }}
@@ -79,7 +77,7 @@ class BusinessPage extends React.Component {
 
           <div className="business-page-row">
             <Reviews business={business} />
-            <span>Business Hours Here</span>
+            <span className="business-hours">Business Hours Here</span>
           </div>
         </section>
       );

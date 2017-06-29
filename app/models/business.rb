@@ -30,8 +30,19 @@ class Business < ActiveRecord::Base
       styles: { medium: "300x300", thumb: "90x90" },
       default_url: "/assets/missing.png"
   validates_attachment_content_type :business_image, content_type: /\Aimage\/.*\Z/
+
   def review_count
-    rand(100)
+    self.reviews.count
+  end
+
+  def overall_rating
+    reviews = self.reviews;
+
+    if reviews.empty?
+      0
+    else
+      reviews.map(&:rating).reduce(:+) / reviews.count
+    end
   end
 
   def categories
