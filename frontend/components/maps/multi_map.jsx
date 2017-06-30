@@ -8,7 +8,38 @@ const mapOptions = {
     lat: 40.744219,
     lng: -73.9936615
   }, // Manhattan Coords
-  zoom: 15
+  zoom: 15,
+  zoomControl: true,
+  zoomControlOptions: {
+      style: google.maps.ZoomControlStyle.SMALL,
+      position: google.maps.ControlPosition.LEFT_CENTER
+  },
+  mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles: [
+        {
+            "featureType": "administrative.country",
+            "elementType": "geometry",
+            "stylers": [
+            { "weight": 1.2 },
+            { "color": "#dd4b39" }
+            ]
+        },{
+            "featureType": "administrative",
+            "stylers": [
+            { "visibility": "simplified" }
+            ]
+        },{
+            "featureType": "administrative.country",
+            "stylers": [
+            { "visibility": "on" }
+            ]
+        },{
+            "featureType": "administrative.locality",
+            "stylers": [
+            { "visibility": "on" }
+            ]
+        }
+        ]
 };
 
 class MultiMap extends React.Component {

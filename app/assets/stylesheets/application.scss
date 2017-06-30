@@ -260,3 +260,26 @@ input {
 #search-bar-button:hover {
   background: darken(rgba(168, 36, 36, 0.99), 10) !important;
 }
+
+.gm-style-iw {
+   width: 140px !important;
+   top: 15px !important;
+   left: 0 !important;
+   padding: 20px;
+   color: snow;
+   background-color: rgba(129, 47, 47, 0.71);
+   box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+   border: 2px dashed white;
+   border-radius: 5px;
+}
+
+#iw-container  .iw-title {
+   font-family: 'Arima Maduira', sans-serif !important;
+   font-size: 22px;
+   font-weight: 400;
+   padding: 10px;
+   background-color: #48b5e9;
+   color: white;
+   margin: 1px;
+   border-radius: 2px 2px 0 0; /* In accordance with the rounding of the default infowindow corners. */
+}
