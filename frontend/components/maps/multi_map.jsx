@@ -8,7 +8,7 @@ const mapOptions = {
     lat: 40.744219,
     lng: -73.9936615
   }, // Manhattan Coords
-  zoom: 15,
+  zoom: 12,
   zoomControl: true,
   zoomControlOptions: {
       style: google.maps.ZoomControlStyle.SMALL,
