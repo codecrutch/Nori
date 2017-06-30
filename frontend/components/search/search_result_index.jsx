@@ -24,6 +24,7 @@ class SearchResultIndex extends React.Component {
   }
 
   componentDidMount(){
+    document.body.scrollTop = 0;
     if (this.props.businesses.length > 0) {
     } else {
       this.props.fetchAllBusinesses();

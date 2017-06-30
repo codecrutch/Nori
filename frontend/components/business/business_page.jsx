@@ -33,6 +33,7 @@ class BusinessPage extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
+    document.body.scrollTop = 0;
     let oldBusinessId = this.props.match.params.businessId;
     let newBusinessId = newProps.match.params.businessId
     if (oldBusinessId !== newBusinessId){
@@ -41,6 +42,7 @@ class BusinessPage extends React.Component {
   }
 
   componentWillUnmount() {
+    document.body.scrollTop = 0;
     this.props.fetchAllBusinesses();
   }
 
