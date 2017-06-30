@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { businessToArray } from '../../util/selectors';
 import { fetchBusiness, fetchAllBusinesses } from '../../actions/business_actions';
+import { Link } from 'react-router-dom';
 import MapView from '../maps/single_business_map';
 import ImageView from './image_view.jsx';
 import Reviews from '../reviews/review_container';
@@ -66,7 +67,7 @@ class BusinessPage extends React.Component {
 
           <div className="business-page-upload">
             <span>Write a Review</span>
-            <span><i className="fa fa-camera" aria-hidden="true"></i>&nbsp;Upload Image</span>
+            <span><Link to={`/uploads/${business.id}`}><i className="fa fa-camera" aria-hidden="true"></i>&nbsp;Upload Image</Link></span>
           </div>
         </div>
 

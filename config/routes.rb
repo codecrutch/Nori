@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :businesses, only: [:index, :create, :show, :update, :destroy]
     resources :reviews, only: [:index, :show, :create, :update, :destroy]
     resources :categories, only: [:index, :show]
+    resources :uploaded_images, only: [:create]
     resource :session, only: [:create, :destroy]
   end
 end

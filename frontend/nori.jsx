@@ -4,6 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 import * as actions from './actions/session_actions';
 import * as rev from './actions/review_actions';
+import * as bus from './actions/business_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.fetchReview = rev.fetchReview;
     window.fetchAllReviews = rev.fetchAllReviews;
     window.deleteReview = rev.deleteReview;
+    window.uploadImage = bus.uploadImage;
   // END TESTING
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);

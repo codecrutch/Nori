@@ -5,6 +5,7 @@ export const RECEIVE_BUSINESS = "RECEIVE_BUSINESS";
 export const UPDATE_BUSINESS = "UPDATE_BUSINESS";
 export const REMOVE_BUSINESS = "REMOVE_BUSINESS";
 export const ADD_BUSINESS = "ADD_BUSINESS";
+export const ADD_UPLOADED_IMAGE = "ADD_UPLOADED_IMAGE";
 
 
 // Custom Error Display
@@ -58,6 +59,13 @@ export const addBusiness = (business) => {
   });
 };
 
+export const addImage = (business) => {
+  return ({
+    type: ADD_UPLOADED_IMAGE,
+    business
+  });
+};
+
 // thunk async action creators
 export const fetchAllBusinesses = (query, category) => (dispatch) => {
   return BusinessAPIUtil.fetchAllBusinesses(query, category)
@@ -105,5 +113,13 @@ export const editBusiness = (business) => (dispatch) => {
     .then(
       business => dispatch(updateBusiness(business)),
       errors => displayErrors(errors, dispatch)
+    );
+};
+
+export const uploadImage = (uploaded_image) => (dispatch) => {
+  return BusinessAPIUtil.uploadImage(uploaded_image)
+    .then(
+        business => dispatch(addImage(business)),
+        errors => displayErrors(errors, dispatch)
     );
 };

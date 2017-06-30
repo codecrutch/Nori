@@ -25,6 +25,8 @@ class Business < ActiveRecord::Base
   has_many :category_listings, dependent: :destroy
   has_many :food_categories, through: :category_listings, source: :category
   has_many :reviews, dependent: :destroy
+  has_many :uploaded_images, dependent: :destroy
+  has_many :photos, through: :uploaded_images, source: :photo
 
   has_attached_file :business_image,
       styles: { medium: "300x300", thumb: "90x90" },

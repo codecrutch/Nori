@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628191218) do
+ActiveRecord::Schema.define(version: 20170630014611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,20 @@ ActiveRecord::Schema.define(version: 20170628191218) do
   add_index "reviews", ["business_id"], name: "index_reviews_on_business_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
+  create_table "uploaded_images", force: :cascade do |t|
+    t.integer  "business_id"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "uploaded_images", ["business_id"], name: "index_uploaded_images_on_business_id", using: :btree
+  add_index "uploaded_images", ["user_id"], name: "index_uploaded_images_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
     t.string   "session_token",   null: false
@@ -81,4 +95,6 @@ ActiveRecord::Schema.define(version: 20170628191218) do
   add_foreign_key "category_listings", "categories"
   add_foreign_key "reviews", "businesses"
   add_foreign_key "reviews", "users"
+  add_foreign_key "uploaded_images", "businesses"
+  add_foreign_key "uploaded_images", "users"
 end

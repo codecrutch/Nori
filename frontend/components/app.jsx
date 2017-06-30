@@ -11,6 +11,7 @@ import BusinessPage from './business/business_page';
 import BusinessForm from './business/business_form_container';
 import BusinessEdit from './business/business_edit_index';
 import ReviewPage from './reviews/review_form';
+import UploadForm from './business/upload_form';
 import FourZeroFour from './four_zero_four';
 
 const App = () => (
@@ -20,6 +21,7 @@ const App = () => (
     <section id="" className="">
       <Switch>
         <Route exact path="/" component={LandingPage} />
+        <Route exact path="/uploads/:businessId(\d+)" component={UploadForm}/>
         <Route exact path="/business/:businessId(\d+)" component={BusinessPage}/>
         <Route exact path="/business/:businessId(\d+)/review" component={ReviewPage}/>
         <ProtectedRoute exact path="/business/new" component={BusinessForm} />

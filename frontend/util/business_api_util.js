@@ -48,3 +48,14 @@ export const editBusiness = (business) => {
     data: { business }
   });
 };
+
+export const uploadImage = (uploaded_image) => {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/uploaded_images',
+    dataType: "json",
+    contentType: false,
+    processData: false,
+    data: uploaded_image
+  });
+};

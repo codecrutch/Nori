@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   has_many :reviews
+  has_many :uploaded_images, dependent: :destroy
+
   after_initialize :ensure_session_token
   before_validation :ensure_unique_session_token
 
