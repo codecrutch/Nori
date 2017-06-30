@@ -91,23 +91,12 @@ class BusinessForm extends React.Component {
 
   convertHoursToString() {
     let {mon,tues,wed,thurs,fri,sat,sun} = this.state
-    let hourString = [
-      "Mon:",mon,
-      "Tue:",tues,
-      "Wed:",wed,
-      "Thu:",thurs,
-      "Fri:",fri,
-      "Sat:",sat,
-      "Sun:",sun
-    ]
-
-    hourString = hourString.join(' ');
+    let hourString = `Mon: ${mon}| Tue: ${tues}| Wed: ${wed}| Thu: ${thurs}| Fri: ${fri}| Sat: ${sat}| Sun: ${sun}|`
     return hourString;
   }
 
   handleInput(event, field){
     let value = event.currentTarget.value;
-    console.log(value);
     this.setState({ [field]: value });
   }
 

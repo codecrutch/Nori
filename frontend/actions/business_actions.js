@@ -92,7 +92,6 @@ export const fetchBusiness = (id) => (dispatch) => {
 };
 
 export const createBusiness = (business) => (dispatch) => {
-  debugger
   return BusinessAPIUtil.createBusiness(business)
     .then(
       business => dispatch(addBusiness(business)),

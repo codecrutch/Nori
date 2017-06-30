@@ -17,7 +17,7 @@ sushi = Business.new(
   address: "300 W 23rd St, New York, NY 10011",
   price_rating: 3,
   phone: "212-727-0888",
-  hours: "Mon: 6am-10pm Tue: 6am-10pm Wed: 6am-10pm Thu: 6am-10pm Fri: 6am-10pm Sat: 6am-10pm Sun: 6am-10pm",
+  hours: "Mon: 6am-10pm| Tue: 6am-10pm| Wed: 6am-10pm| Thu: 6am-10pm| Fri: 6am-10pm| Sat: 6am-10pm| Sun: 6am-10pm|",
   website_url: "https://www.zomato.com/new-york-city/asuka-sushi-japanese-restaurant-chelsea-manhattan/menu?utm_source=Google&utm_medium=Local&utm_campaign=GoogleMenus",
   lat: 40.744464,
   lng: -73.993063
@@ -32,7 +32,7 @@ sushi = Business.new(
   address: "43 W 24th St, New York, NY 10010",
   price_rating: 3,
   phone: "917-993-7323",
-  hours: "Mon: 6am-10pm Tue: 6am-10pm Wed: 6am-10pm Thu: 6am-10pm Fri: 6am-10pm Sat: 6am-10pm Sun: 6am-10pm",
+  hours: "Mon: 6am-10pm| Tue: 6am-10pm| Wed: 6am-10pm| Thu: 6am-10pm| Fri: 6am-10pm| Sat: 6am-10pm| Sun: 6am-10pm|",
   website_url: "http://places.singleplatform.com/latin-beet-kitchen-0/menu?ref=google",
   lat: 40.743381,
   lng: -73.99129
@@ -48,7 +48,7 @@ sushi = Business.new(
   address: "136 W 28th St, New York, NY 10001",
   price_rating: 2,
   phone: "646-638-0888",
-  hours: "Mon: 6am-10pm Tue: 6am-10pm Wed: 6am-10pm Thu: 6am-10pm Fri: 6am-10pm Sat: 6am-10pm Sun: 6am-10pm",
+  hours: "Mon: 6am-10pm| Tue: 6am-10pm| Wed: 6am-10pm| Thu: 6am-10pm| Fri: 6am-10pm| Sat: 6am-10pm| Sun: 6am-10pm|",
   website_url: "www.ajisenusa.com",
   lat: 40.7465264,
   lng: -73.9922244
@@ -65,7 +65,7 @@ sushi = Business.new(
   address: "41 W 24th St New York, NY 10010",
   price_rating: 4,
   phone: "646-964-5672",
-  hours: "Mon: 6am-10pm Tue: 6am-10pm Wed: 6am-10pm Thu: 6am-10pm Fri: 6am-10pm Sat: 6am-10pm Sun: 6am-10pm",
+  hours: "Mon: 6am-10pm| Tue: 6am-10pm| Wed: 6am-10pm| Thu: 6am-10pm| Fri: 6am-10pm| Sat: 6am-10pm| Sun: 6am-10pm|",
   website_url: "chop-shop.co",
   lat: 40.7433325,
   lng: -73.9911554

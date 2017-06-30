@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 import MapView from '../maps/single_business_map';
 import ImageView from './image_view.jsx';
 import Reviews from '../reviews/review_container';
+import BusinessHours from './business_hours';
 import StarRatingComponent from 'react-star-rating-component';
+import uniqueId from '../../util/unique_id';
 
 const mapStateToProps = (state, ownProps) => {
   return({
@@ -46,7 +48,7 @@ class BusinessPage extends React.Component {
     let business = this.props.business;
     if (business) {
       return (
-        <section>
+        <section key={uniqueId("business")}>
         <div className="business-page-row">
           <div>
             <h1>{business.name}</h1>
@@ -66,19 +68,18 @@ class BusinessPage extends React.Component {
           </div>
 
           <div className="business-page-upload">
-            <span>Write a Review</span>
             <span><Link to={`/uploads/${business.id}`}><i className="fa fa-camera" aria-hidden="true"></i>&nbsp;Upload Image</Link></span>
           </div>
         </div>
 
           <div className="business-page-row">
-            <MapView business={business} />
-            <ImageView business={business} />
+            <MapView key={uniqueId("bp-map")} business={business} />
+            <ImageView key={uniqueId("images")} business={business} />
           </div>
 
           <div className="business-page-row">
             <Reviews business={business} />
-            <span className="business-hours">Business Hours Here</span>
+            <span className="business-hours"><BusinessHours key={uniqueId("bh")} business={business} /></span>
           </div>
         </section>
       );

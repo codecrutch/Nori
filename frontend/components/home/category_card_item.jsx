@@ -11,7 +11,6 @@ const mapDispatchToProps = dispatch => {
 
 const CategoryCardItem = ({category, fetchAllBusinessesByCategory, history}) => {
   const handleClick = (e) => {
-    console.log(category)
     fetchAllBusinessesByCategory(category.id)
     history.push('/businesses');
   };

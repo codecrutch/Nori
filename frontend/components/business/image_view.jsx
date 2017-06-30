@@ -1,4 +1,5 @@
 import React from 'react';
+import uniqueId from '../../util/unique_id';
 
 class ImageView extends React.Component {
   constructor(props){
@@ -8,10 +9,12 @@ class ImageView extends React.Component {
   displayImages(){
     let business = this.props.business;
 
-    if (business.images) {
+    if (business.uploaded_images) {
+      let images = business.uploaded_images.map(src => <img id="upload-image" className="img-thumbnail" style={{  margin: '5px', width: '90px', height: '90px' }} src={src} key={uniqueId()}/>);
+    
       return (
-        <div>
-          <img src={images[0]}/>
+        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+          {images}
         </div>
       );
     } else {
