@@ -50,7 +50,7 @@ class BusinessPage extends React.Component {
     let business = this.props.business;
     if (business) {
       return (
-        <section key={uniqueId("business")}>
+        <section key={business.id}>
         <div className="business-page-row">
           <div>
             <h1>{business.name}</h1>

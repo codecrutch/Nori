@@ -44,7 +44,7 @@ class ReviewForm extends React.Component {
 
     if (reviews) {
       let allReviews = reviews.map(review => (
-        <section key={uniqueId("reviews")} className="review-list" style={{ padding: '10px 10px', marginRight: '25px', display: 'flex', justifyContent: 'space-between', width: '600px' }}>
+        <section key={review.id} className="review-list" style={{ padding: '10px 10px', marginRight: '25px', display: 'flex', justifyContent: 'space-between', width: '600px' }}>
           <div style={{ display: 'flex', flex: '1 0 0', flexDirection: 'column', width: '95px' }}>
             <span style={{ fontSize: '12px' }}>{review.username}</span>
             { review.user_id === this.props.currentUser.id ? <button key={uniqueId("button")} className='btn btn-danger' style={{ width: '65px', margin: '11px 77px'}} onClick={() => this.props.deleteReview(review.id)}>Delete</button> : "" }
