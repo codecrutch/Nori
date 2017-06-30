@@ -17,18 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  // JUST FOR TESTING
-    window.login = actions.login;
-    window.signup = actions.signup;
-    window.logout = actions.logout;
-
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
-    window.fetchReview = rev.fetchReview;
-    window.fetchAllReviews = rev.fetchAllReviews;
-    window.deleteReview = rev.deleteReview;
-    window.uploadImage = bus.uploadImage;
-  // END TESTING
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);
 });
