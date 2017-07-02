@@ -29,7 +29,9 @@ class SingleBusinessMap extends React.Component {
     `<div>${business.review_count} reviews</div>` ;
 
     var infowindow = new google.maps.InfoWindow({
-      content: contentString
+      content: contentString,
+      maxWidth: '0px',
+      maxHeight: '0px'
     });
 
     marker.addListener('click', function() {

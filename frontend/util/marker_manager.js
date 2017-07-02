@@ -59,9 +59,6 @@ class MarkerManager {
     el.addEventListener('mouseenter', (e) => {
       this.map.panTo(position);
       infowindow.open(map, marker);
-
-      console.log("hovering");
-      console.log(e);
       el.style["box-shadow"] = "-2px 2px 20px 0px #dfdfdf";
       el.style["color"] = "#c22020";
       el.style["border-radius"] = "5px";
@@ -69,7 +66,6 @@ class MarkerManager {
 
     el.addEventListener('mouseleave', () => {
       infowindow.close(map, marker);
-      console.log("mouse left");
       el.style["box-shadow"] = "none";
       el.style["color"] = "inherit";
       el.style["border-radius"] = "0";

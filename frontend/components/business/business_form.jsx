@@ -62,7 +62,6 @@ class BusinessForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let formEl = document.getElementById("form");
-    console.log(formEl);
     let formData = new FormData();
     formData.append("business[name]", this.state.name);
     formData.append("business[phone]", this.state.phone);

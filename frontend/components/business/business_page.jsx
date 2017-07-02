@@ -30,7 +30,6 @@ class BusinessPage extends React.Component {
   }
 
   componentDidMount(){
-    console.log('here')
     this.props.fetchBusiness(this.props.match.params.businessId);
   }
 
@@ -68,7 +67,7 @@ class BusinessPage extends React.Component {
                   renderStarIconHalf={() => <span className="fa fa-star-half-full" />}
                 />
               </span>
-              <span className="business-review-count">{ business.review_count } reviews</span>
+              <span className="business-page-review-count">{ business.review_count } reviews</span>
             </div>
 
             <div className="business-page-upload">

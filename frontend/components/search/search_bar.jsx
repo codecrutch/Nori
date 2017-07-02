@@ -54,7 +54,7 @@ class SearchBar extends React.Component {
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ display: 'flex' }}>
           <span style={{ fontWeight: 'bolder', fontSize: fontSize, position: 'relative', left: '60px', top: top, zIndex: '2'}}>Find</span>
-          <input autoComplete="off" spellCheck="false" onKeyUp={this.searchEnterPressed} id="splash-search-bar" type="text" className="form-control" placeholder="sushi, cheap dinner, ramen" style={{ borderRight: '0.5px dashed #BBB', height: height, fontSize: fontSize}} />
+          <input autoComplete="off" spellCheck="false" onKeyUp={this.searchEnterPressed} id="splash-search-bar" type="text" className="form-control" placeholder="sushi, ramen, lunch" style={{ borderRight: '0.5px dashed #BBB', height: height, fontSize: fontSize}} />
           <input autoComplete="off" spellCheck="false" onKeyUp={this.searchEnterPressed} id="splash-near-search" type="text" className="form-control" placeholder="address, city, zip" style={{ height: height, fontSize: fontSize }} />
           <span style={{ fontWeight: 'bolder', fontSize: fontSize, position: 'relative', right: '375px', top: top, zIndex: '2'}}>Near</span>
           <span id="search-bar-button"  onClick={this.searchBusinesses} style={{ position: 'relative', left: '-55px', background: '#c22020', borderRadius: '5px', padding: '6px 10px', height: height}}>
