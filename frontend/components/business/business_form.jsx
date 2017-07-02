@@ -107,7 +107,7 @@ class BusinessForm extends React.Component {
       <section className='business-form-layout container' style={{ display: 'flex', width: '900px'}}>
         <section className='business-form-container row'>
           <div className="form-left col-med-12 col-lg-12 text-center">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Emoji_u1f363.svg/2000px-Emoji_u1f363.svg.png" className="business-form-image"></img>
+            <img src="https://s3.us-east-2.amazonaws.com/noriapp-prod/static/sushi-two.png" className="business-form-image"></img>
           </div>
 
             <form className="business-new-form" onSubmit={(e) => this.handleSubmit(e)}>

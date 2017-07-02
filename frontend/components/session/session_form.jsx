@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
       <section className='auth-layout container' style={{ display: 'flex', justifyContent: 'center'}}>
         <section className='auth-container row' style={{ width: '900px'}}>
           <div className="form-left col-med-6 col-lg-6">
-            <img src="https://s.w.org/images/core/emoji/2.2.1/svg/1f363.svg" className="form-image"></img>
+            <img src="https://s3.us-east-2.amazonaws.com/noriapp-prod/static/sushi.svg" className="form-image"></img>
           </div>
 
           <div className="form-right col-med-6 col-lg-6">

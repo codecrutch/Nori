@@ -29,6 +29,10 @@ a {
   color: rgba(#0a0a0a, 0.86);
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 a:visited {
   text-decoration: none;
   color: rgba(#0a0a0a, 0.86);

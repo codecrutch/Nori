@@ -62,7 +62,7 @@ class SplashHero extends React.Component {
             <div style={{ minHeight: '100px' }} />
             <div className="splash-logo">Nori</div>
             <div style={{ minHeight: '100px' }} />
-            <SearchBar fetchAllBusinesses={this.props.fetchAllBusinesses} />
+            <SearchBar searchSize="large" fetchAllBusinesses={this.props.fetchAllBusinesses} />
 
           </div>
         </div>

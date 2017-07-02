@@ -110,7 +110,7 @@ class BusinessEditForm extends React.Component {
       <section className='business-form-layout container'>
         <section className='business-form-container row'>
           <div className="col-med-12 col-lg-12 text-center">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Emoji_u1f363.svg/2000px-Emoji_u1f363.svg.png" className="business-form-image"></img>
+            <img src="https://s3.us-east-2.amazonaws.com/noriapp-prod/static/sushi.svg" className="business-form-image"></img>
           </div>
 
             <form className="business-edit-form" onSubmit={(e) => this.handleSubmit(e)}>

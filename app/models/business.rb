@@ -20,6 +20,12 @@ class Business < ActiveRecord::Base
     against: [:name, :address, :price_rating],
     associated_against: {
       food_categories: [:name]
+    },
+    using: {
+      tsearch: {
+        prefix: true,
+        dictionary: "english"
+      }
     }
 
   validates :name, :address, :hours, :price_rating, :website_url,

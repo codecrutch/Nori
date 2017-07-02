@@ -19,8 +19,8 @@
 
 #under-nav {
   display: flex;
-  height: 21px;
-  max-height: 21px;
+  height: 25px;
+  max-height: 25px;
   background-color: darken(#D32323, 4);
   margin-bottom: 40px;
   color: white;
@@ -31,7 +31,7 @@
 #under-nav-bar {
 
   a {
-    padding: 3px 60px 3px 10px;
+    padding: 3px 30px 3px 30px;
     margin-right: 10px;
     width: 100px;
   }
@@ -42,14 +42,14 @@
 
   a:hover {
     background-color: darken(#D32323, 15);
-    text-decoration: none;
+    padding-bottom: 2px;
   }
 
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 21px;
-  max-height: 21px;
+  height: 24px;
+  max-height: 24px;
   background-color: darken(#D32323, 4);
   margin-bottom: 40px;
   color: white;
@@ -75,12 +75,10 @@
 #splash-search-bar {
   position: relative;
   width: 477px;
-  height: 50px;
   text-indent: 57px;
   border-radius: 5px;
   border: none;
   z-index: 1;
-  font-size: 25px;
 }
 
 .search-input-btn {
@@ -109,14 +107,12 @@
 #splash-near-search {
   position: relative;
   width: 327px;
-  height: 50px;
   text-indent: 5px;
   border-radius: 0;
   border: none;
   box-shadow: none;
   right: 10px;
   z-index: 2;
-  font-size: 25px;
 }
 
 #splash-psuedo-find-input {
