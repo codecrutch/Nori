@@ -10,7 +10,6 @@ class MarkerManager {
     businesses.forEach(business => businessesObj[business.id] = business);
 
     businesses
-      .filter(business => !this.markers[business.id])
       .forEach(newBusiness => this.createBusinessMarker(newBusiness, this.handleClick))
 
     Object.keys(this.markers)

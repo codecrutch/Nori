@@ -58,6 +58,10 @@ class MultiMap extends React.Component {
     this.props.history.push(`business/${business.id}`);
   }
 
+  componentWillUnmount(){
+    this.MarkerManager.updateMarkers(this.props.businesses);
+  }
+
   render() {
     return (
       <div id="map" ref="map" style={{ height: '500px', width: '500px', position: 'relative', left: '-90px'}}>
