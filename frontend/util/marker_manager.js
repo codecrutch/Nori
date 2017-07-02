@@ -9,12 +9,11 @@ class MarkerManager {
     const businessesObj = {};
     businesses.forEach(business => businessesObj[business.id] = business);
 
+    Object.keys(this.markers)
+      .forEach((businessId) => this.removeMarker(this.markers[businessId]))
+    
     businesses
       .forEach(newBusiness => this.createBusinessMarker(newBusiness, this.handleClick))
-
-    Object.keys(this.markers)
-      .filter(businessId => !businessesObj[businessId])
-      .forEach((businessId) => this.removeMarker(this.markers[businessId]))
   }
 
   createBusinessMarker(business) {
