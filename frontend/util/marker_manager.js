@@ -7,13 +7,28 @@ class MarkerManager {
 
   updateMarkers(businesses){
     const businessesObj = {};
+    let bounds = new google.maps.LatLngBounds();
+
     businesses.forEach(business => businessesObj[business.id] = business);
 
     Object.keys(this.markers)
       .forEach((businessId) => this.removeMarker(this.markers[businessId]))
     
     businesses
-      .forEach(newBusiness => this.createBusinessMarker(newBusiness, this.handleClick))
+      .forEach(newBusiness => {
+        let latLng = new google.maps.LatLng(newBusiness.lat, newBusiness.lng);
+        bounds.extend(latLng);
+        this.createBusinessMarker(newBusiness, this.handleClick);
+      })
+
+    if (bounds.getNorthEast().equals(bounds.getSouthWest())) {
+       var extendPoint1 = new google.maps.LatLng(bounds.getNorthEast().lat() + 0.001, bounds.getNorthEast().lng() + 0.001);
+       var extendPoint2 = new google.maps.LatLng(bounds.getNorthEast().lat() - 0.001, bounds.getNorthEast().lng() - 0.001);
+       bounds.extend(extendPoint1);
+       bounds.extend(extendPoint2);
+    }
+
+    this.map.fitBounds(bounds);
   }
 
   createBusinessMarker(business) {
