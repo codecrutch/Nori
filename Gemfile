@@ -16,6 +16,7 @@ gem 'figaro'
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'pg_search'
+gem 'httparty'
 
 group :development, :test do
   gem 'byebug'

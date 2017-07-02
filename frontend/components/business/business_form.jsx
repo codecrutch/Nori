@@ -104,7 +104,7 @@ class BusinessForm extends React.Component {
     let hoursPlaceholder = "ex. 6:00am - 5:45pm";
 
     return(
-      <section className='business-form-layout container' style={{ display: 'flex', width: '900px'}}>
+      <section className='business-form-layout container'>
         <section className='business-form-container row'>
           <div className="form-left col-med-12 col-lg-12 text-center">
             <img src="https://s3.us-east-2.amazonaws.com/noriapp-prod/static/sushi-two.png" className="business-form-image"></img>
@@ -119,9 +119,10 @@ class BusinessForm extends React.Component {
               <br />
               <input className="business-form-website-url" placeholder="Website URL" onChange={(e) => this.handleInput(e, "website_url")} type='text' />
               <br />
-              <input className="business-form-business-img-url" placeholder="Business Image" onChange={(e) => this.updateFile(e)} type='file' />
+              <img src={this.state.business_img_url} style={{ width: '90px', height: '90px', borderRadius: '5px', marginBottom: '10px'}}/>
               <br/>
-              <img src={this.state.business_img_url} style={{ width: '90px', height: '90px', borderRadius: '5px'}}/>
+              <input className="business-form-business-img-url inputfile" name="file" id="file" placeholder="Business Image" onChange={(e) => this.updateFile(e)} type='file' />
+              <label htmlFor="file">Choose a profile picture</label>
               <br />
               <input className="business-form-phone" placeholder="Phone Number" onChange={(e) => this.handleInput(e, "phone")} type='text' />
               <br />
@@ -218,7 +219,7 @@ class BusinessForm extends React.Component {
                 <input className="sun" placeholder={hoursPlaceholder} onChange={(e) => this.handleInput(e, "sun")} type='text' value={this.state.sun} />
                 </label>
                 <br />
-                <input id="business-form-submit" className="btn btn-large btn-info" type="submit" value={this.props.formTitle} />
+                <input id="business-form-submit" className="btn btn-large btn-warning" type="submit" value={this.props.formTitle} />
               </section>
               <br />
 

@@ -17,6 +17,11 @@ class Api::BusinessesController < ApplicationController
     end
   end
 
+  def geocode
+    response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?key=#{Figaro.env.google_maps_key}&address=#{address}")
+    render json: response
+  end
+
   def show
     @business = Business.find_by_id(params[:id])
     unless @business.nil?
@@ -60,11 +65,7 @@ class Api::BusinessesController < ApplicationController
     params[:q]
   end
 
-  def price
-    params[:price]
-  end
-
-  def category
-    params[:category]
+  def address
+    params[:address]
   end
 end

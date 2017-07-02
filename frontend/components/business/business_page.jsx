@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { businessToArray } from '../../util/selectors';
-import { fetchBusiness, fetchAllBusinesses } from '../../actions/business_actions';
+import { fetchBusiness, fetchAllBusinesses, clearBusinesses } from '../../actions/business_actions';
 import { Link } from 'react-router-dom';
 import MapView from '../maps/single_business_map';
 import ImageView from './image_view.jsx';
@@ -19,7 +19,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return ({
     fetchBusiness: (id) => dispatch(fetchBusiness(id)),
-    fetchAllBusinesses: () => dispatch(fetchAllBusinesses())
+    fetchAllBusinesses: () => dispatch(fetchAllBusinesses()),
+    clearBusinesses: () => dispatch(clearBusinesses())
   });
 };
 
@@ -44,7 +45,7 @@ class BusinessPage extends React.Component {
 
   componentWillUnmount() {
     document.body.scrollTop = 0;
-    // this.props.fetchAllBusinesses();
+    this.props.clearBusinesses();
   }
 
   displayBusiness(){
@@ -93,7 +94,7 @@ class BusinessPage extends React.Component {
       );
     } else {
       return (
-        <h1>Loading ...</h1>
+        null
       );
     }
   }

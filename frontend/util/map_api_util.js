@@ -1,8 +1,8 @@
 export const geocodeAddress = (address) => {
   return $.ajax({
     method: 'GET',
-    url: 'https://maps.googleapis.com/maps/api/geocode/json',
-    data: { key: "AIzaSyDZCdHlJoZFhTH17XDfmQtCF_z_3v3a8lE", address: address }
+    url: '/api/businesses/geocode',
+    data: { address: address }
   });
 };
 
