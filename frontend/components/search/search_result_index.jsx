@@ -8,7 +8,7 @@ import MultiMap from '../maps/multi_map';
 
 const mapStateToProps = (state) => {
   return ({
-    businesses: businessToArray(state.businesses)
+    businesses: businessToArray(state.businesses.allBusinesses)
   });
 };
 
@@ -25,9 +25,25 @@ class SearchResultIndex extends React.Component {
 
   componentDidMount(){
     document.body.scrollTop = 0;
-    if (this.props.businesses.length > 0) {
+    let search = this.props.location.search;
+    if (search) {
+      let query = this.props.location.search.split('q=')[1];
+      this.props.fetchAllBusinesses(query);
     } else {
       this.props.fetchAllBusinesses();
+    }
+  }
+
+  componentWillReceiveProps(newProps){
+    document.body.scrollTop = 0;
+    if (this.props.location.search !== newProps.location.search) {
+      let search = newProps.location.search;
+      if (search) {
+        let query = newProps.location.search.split('q=')[1];
+        newProps.fetchAllBusinesses(query);
+      } else {
+        newProps.fetchAllBusinesses();
+      }
     }
   }
 

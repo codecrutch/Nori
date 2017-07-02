@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchAllBusinesses } from '../../actions/business_actions';
+import { fetchAllBusinesses, clearBusinesses } from '../../actions/business_actions';
 import { logout } from '../../actions/session_actions';
 import SearchBar from '../search/search_bar';
 
@@ -14,6 +14,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return({
     fetchAllBusinesses: (query) => dispatch(fetchAllBusinesses(query)),
+    clearBusinesses: () => dispatch(clearBusinesses()),
     logout: () => dispatch(logout())
   });
 }
@@ -39,6 +40,10 @@ class SplashHero extends React.Component {
         </span>
       );
     }
+  }
+
+  componentWillUnmount(){
+    this.props.clearBusinesses();
   }
 
   render(){

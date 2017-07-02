@@ -31,6 +31,7 @@ class UploadForm extends React.Component {
     formData.append("uploaded_image[user_id]", this.props.currentUser.id);
     formData.append("uploaded_image[photo]", this.state.uploaded_image);
 
+    // FIX: Make back not be wonky
     this.props.uploadImage(formData).then(
       (e) => this.props.history.replace(`/business/${this.props.match.params.businessId}`)
     );

@@ -11,8 +11,26 @@ class SearchBar extends React.Component {
 
   searchBusinesses(){
     let query = document.getElementById('splash-search-bar').value;
-    this.props.fetchAllBusinesses(query);
-    this.props.history.push('/businesses');
+    let location = document.getElementById('splash-near-search').value;
+    let bounds;
+
+    if (location) {
+      // use places api to get place id near location
+      // if place id is found/chosen, get bounds by that lat/lng
+
+      //set bounds = to lat/lng if can
+      if (query && bounds) {
+        return this.props.history.push(`/businesses?q=${query}&bounds=${bounds}`);
+      } else if (bounds) {
+        return this.props.history.push(`/businesses?bounds=${bounds}`);
+      }
+    }
+
+    if (query && bounds){
+      return this.props.history.push(`/businesses?q=${query}&bounds=${bounds}`);
+    } else if (query) {
+      return this.props.history.push(`/businesses?q=${query}`);
+    }
   }
 
   searchEnterPressed(event){

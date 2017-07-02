@@ -6,6 +6,7 @@ export const UPDATE_BUSINESS = "UPDATE_BUSINESS";
 export const REMOVE_BUSINESS = "REMOVE_BUSINESS";
 export const ADD_BUSINESS = "ADD_BUSINESS";
 export const ADD_UPLOADED_IMAGE = "ADD_UPLOADED_IMAGE";
+export const CLEAR_BUSINESSES = "CLEAR_BUSINESSES";
 
 
 // Custom Error Display
@@ -63,6 +64,12 @@ export const addImage = (business) => {
   return ({
     type: ADD_UPLOADED_IMAGE,
     business
+  });
+};
+
+export const clearBusinesses = () => {
+  return ({
+    type: CLEAR_BUSINESSES
   });
 };
 

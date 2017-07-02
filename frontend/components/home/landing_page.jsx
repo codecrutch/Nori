@@ -49,7 +49,7 @@ class LandingPage extends React.Component {
 
 const mapStateToProps = state => {
   return({
-    businesses: businessToArray(state.businesses),
+    businesses: businessToArray(state.businesses.allBusinesses),
     categories: categoryToArray(state.categories)
   });
 };

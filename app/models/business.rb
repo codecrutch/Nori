@@ -15,6 +15,12 @@
 #
 
 class Business < ActiveRecord::Base
+  include PgSearch
+  pg_search_scope :search,
+    against: [:name, :address, :price_rating],
+    associated_against: {
+      food_categories: [:name]
+    }
 
   validates :name, :address, :hours, :price_rating, :website_url,
     :lat, :lng, :phone, presence: true

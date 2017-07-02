@@ -8,7 +8,7 @@ import uniqueId from '../../util/unique_id';
 
 const mapStateToProps = (state, ownProps) => {
   return({
-    business: state.businesses
+    business: state.businesses.currentBusiness
   });
 };
 
@@ -50,12 +50,19 @@ class BusinessEdit extends React.Component {
     let deleteBusiness = this.props.deleteBusiness;
 
     if (business) {
-      let id = uniqueId();
       return (
-        <BusinessEditForm key={id} business={business} processForm={processForm} getLatitudeAndLongitude={geocodeAddress} deleteBusiness={deleteBusiness} addressError={addressError} />);
+        <BusinessEditForm
+          key={business.id}
+          business={business}
+          processForm={processForm}
+          getLatitudeAndLongitude={geocodeAddress}
+          deleteBusiness={deleteBusiness}
+          addressError={addressError}
+         />
+      );
     } else {
       return (
-        <h1 key={uniqueId()}>Loading ...</h1>
+        <h1>Loading ...</h1>
       );
     }
   }

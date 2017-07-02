@@ -17,15 +17,6 @@ class Notify extends React.Component {
   }
 }
 
-Notify.contextTypes = {
-  store: PropTypes.object
-};
-
-Notify.propTypes = {
-  notifications: PropTypes.array
-};
-
 export default connect(
   state => ({ notifications: state.notifications })
 )(Notify);
-

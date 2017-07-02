@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
   let businessId = ownProps.match.params.businessId;
   return ({
     reviews: reviewToArray(state.reviews),
-    business: state.businesses[businessId],
+    business: state.businesses.currentBusiness,
     currentUser: state.session.currentUser
   });
 };

@@ -1,11 +1,7 @@
 class Api::BusinessesController < ApplicationController
   def index
-    if params[:q] && params[:category]
-
-    elsif params[:q]
-      @businesses = Business.where("name ILIKE :search", search: "%#{params[:q]}%")
-    elsif params[:category]
-      @businesses = Category.find(params[:category]).businesses
+    if query.present?
+      @businesses = Business.search(query)
     else
       @businesses = Business.all
     end
@@ -54,8 +50,21 @@ class Api::BusinessesController < ApplicationController
   private
 
   def business_params
-    params.require(:business).permit(:name, :address, :hours, :price_rating,
-                                     :website_url, :lat, :lng, :phone,
-                                     :business_image)
+    params
+      .require(:business)
+      .permit(:name, :address, :hours, :price_rating, :website_url,
+              :lat, :lng, :phone, :business_image)
+  end
+
+  def query
+    params[:q]
+  end
+
+  def price
+    params[:price]
+  end
+
+  def category
+    params[:category]
   end
 end

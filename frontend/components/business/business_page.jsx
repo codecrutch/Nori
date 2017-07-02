@@ -12,7 +12,7 @@ import uniqueId from '../../util/unique_id';
 
 const mapStateToProps = (state, ownProps) => {
   return({
-    business: state.businesses[ownProps.match.params.businessId]
+    business: state.businesses.currentBusiness
   });
 };
 
@@ -29,6 +29,7 @@ class BusinessPage extends React.Component {
   }
 
   componentDidMount(){
+    console.log('here')
     this.props.fetchBusiness(this.props.match.params.businessId);
   }
 
@@ -43,36 +44,41 @@ class BusinessPage extends React.Component {
 
   componentWillUnmount() {
     document.body.scrollTop = 0;
-    this.props.fetchAllBusinesses();
+    // this.props.fetchAllBusinesses();
   }
 
   displayBusiness(){
     let business = this.props.business;
-    if (business) {
+    if (business.id) {
       return (
         <section key={business.id}>
-        <div className="business-page-row">
-          <div>
-            <h1>{business.name}</h1>
-            <span>
-              <StarRatingComponent
-                name="rate2"
-                editing={false}
-                starCount={5}
-                value={business.overall_rating}
-                renderStarIcon={(index, value) => {
-                  return <span className={index <= value ? 'fa fa-star' : 'fa fa-star-o'} />;
-                }}
-                renderStarIconHalf={() => <span className="fa fa-star-half-full" />}
-              />
-            </span>
-            <span className="business-review-count">{ business.review_count } reviews</span>
-          </div>
+          <div className="business-page-row">
+            <div>
+              <h1>{business.name}</h1>
+              <span>
+                <StarRatingComponent
+                  name="rate2"
+                  editing={false}
+                  starCount={5}
+                  value={business.overall_rating}
+                  renderStarIcon={(index, value) => {
+                    return <span className={index <= value ? 'fa fa-star' : 'fa fa-star-o'} />;
+                  }}
+                  renderStarIconHalf={() => <span className="fa fa-star-half-full" />}
+                />
+              </span>
+              <span className="business-review-count">{ business.review_count } reviews</span>
+            </div>
 
-          <div className="business-page-upload">
-            <span><Link to={`/uploads/${business.id}`}><i className="fa fa-camera" aria-hidden="true"></i>&nbsp;Upload Image</Link></span>
+            <div className="business-page-upload">
+              <span>
+                <Link to={`/uploads/${business.id}`}>
+                  <i className="fa fa-camera" aria-hidden="true"></i>
+                  &nbsp;Upload Image
+                </Link>
+              </span>
+            </div>
           </div>
-        </div>
 
           <div className="business-page-row">
             <MapView key={uniqueId("bp-map")} business={business} />

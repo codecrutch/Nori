@@ -15,6 +15,7 @@ gem 'bootstrap-sass'
 gem 'figaro'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'pg_search'
 
 group :development, :test do
   gem 'byebug'
