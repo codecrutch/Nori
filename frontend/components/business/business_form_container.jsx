@@ -15,9 +15,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return({
     processForm: (business) => dispatch(createBusiness(business)),
     getLatitudeAndLongitude: (address) => geocodeAddress(address),
-    addressError: (title) => dispatch(Notifications.error({
+    displayError: (title, message) => dispatch(Notifications.error({
       title: title,
-      message: "ex. 159 W. 25th St, Manhattan NY",
+      message: message,
       position: 'tc',
       autoDismiss: 5,
     }))

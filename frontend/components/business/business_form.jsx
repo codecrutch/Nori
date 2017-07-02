@@ -61,32 +61,39 @@ class BusinessForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    let formEl = document.getElementById("form");
+    console.log(formEl);
     let formData = new FormData();
     formData.append("business[name]", this.state.name);
     formData.append("business[phone]", this.state.phone);
     formData.append("business[hours]", this.convertHoursToString());
     formData.append("business[price_rating]", this.state.price_rating);
     formData.append("business[website_url]", this.state.website_url);
-    formData.append("business[business_image]", this.state.business_image);
 
-    this.props.getLatitudeAndLongitude(this.state.address).then(
-      (res) => {
-        if (res.status === 'ZERO_RESULTS') {
-          this.props.addressError("Couldn't Find Address");
-        } else {
-          let geolocation = res.results[0];
-          //grabout lat and long and put into business
-          formData.append("business[address]", geolocation.formatted_address);
-          formData.append("business[lat]", geolocation.geometry.location.lat)
-          formData.append("business[lng]", geolocation.geometry.location.lng)
+    if (this.state.business_image === null) {
+      this.props.displayError("Image missing", "Please select a profile image.");
+    } else {
+      formData.append("business[business_image]", this.state.business_image);
 
-          this.props.processForm(formData).then(
-            (e) => this.props.history.replace("/")
-          );
-        }
-      },
-      (err) => this.props.addressError("Address Missing")
-    )
+      this.props.getLatitudeAndLongitude(this.state.address).then(
+        (res) => {
+          if (res.status === 'ZERO_RESULTS') {
+            this.props.displayError("Couldn't Find Address", "Provide a valid address");
+          } else {
+            let geolocation = res.results[0];
+            //grabout lat and long and put into business
+            formData.append("business[address]", geolocation.formatted_address);
+            formData.append("business[lat]", geolocation.geometry.location.lat)
+            formData.append("business[lng]", geolocation.geometry.location.lng)
+
+            this.props.processForm(formData).then(
+              (e) => this.props.history.replace("/")
+            );
+          }
+        },
+        (err) => this.props.displayError("Address Missing", "ex. 159 W. 25th St, Manhattan NY")
+      )
+    }
   }
 
   convertHoursToString() {
@@ -105,7 +112,7 @@ class BusinessForm extends React.Component {
 
     return(
       <section className='business-form-layout container'>
-        <section className='business-form-container row'>
+        <section id="form" className='business-form-container row'>
           <div className="form-left col-med-12 col-lg-12 text-center">
             <img src="https://s3.us-east-2.amazonaws.com/noriapp-prod/static/sushi-two.png" className="business-form-image"></img>
           </div>

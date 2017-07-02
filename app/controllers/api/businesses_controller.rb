@@ -19,7 +19,11 @@ class Api::BusinessesController < ApplicationController
 
   def geocode
     response = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?key=#{Figaro.env.google_maps_key}&address=#{address}")
-    render json: response
+    if response.message == 'Bad Request'
+      render json: ["Address Required"], status: 422
+    else
+      render json: response
+    end
   end
 
   def show
