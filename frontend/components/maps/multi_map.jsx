@@ -11,35 +11,35 @@ const mapOptions = {
   zoom: 12,
   zoomControl: true,
   zoomControlOptions: {
-      style: google.maps.ZoomControlStyle.SMALL,
-      position: google.maps.ControlPosition.LEFT_CENTER
+    style: google.maps.ZoomControlStyle.SMALL,
+    position: google.maps.ControlPosition.LEFT_CENTER
   },
   mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: [
-        {
-            "featureType": "administrative.country",
-            "elementType": "geometry",
-            "stylers": [
-            { "weight": 1.2 },
-            { "color": "#dd4b39" }
-            ]
-        },{
-            "featureType": "administrative",
-            "stylers": [
-            { "visibility": "simplified" }
-            ]
-        },{
-            "featureType": "administrative.country",
-            "stylers": [
-            { "visibility": "on" }
-            ]
-        },{
-            "featureType": "administrative.locality",
-            "stylers": [
-            { "visibility": "on" }
-            ]
-        }
-        ]
+  styles: [
+    {
+      "featureType": "administrative.country",
+      "elementType": "geometry",
+      "stylers": [
+        { "weight": 1.2 },
+        { "color": "#dd4b39" }
+      ]
+    }, {
+      "featureType": "administrative",
+      "stylers": [
+        { "visibility": "simplified" }
+      ]
+    }, {
+      "featureType": "administrative.country",
+      "stylers": [
+        { "visibility": "on" }
+      ]
+    }, {
+      "featureType": "administrative.locality",
+      "stylers": [
+        { "visibility": "on" }
+      ]
+    }
+  ]
 };
 
 class MultiMap extends React.Component {
@@ -58,13 +58,13 @@ class MultiMap extends React.Component {
     this.props.history.push(`business/${business.id}`);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.MarkerManager.updateMarkers(this.props.businesses);
   }
 
   render() {
     return (
-      <div id="map" ref="map" style={{ height: '500px', width: '500px', position: 'relative', left: '-90px'}}>
+      <div id="map" ref="map" style={{ height: '500px', width: '500px', position: 'relative', left: '-90px' }}>
         Map
       </div>
     );

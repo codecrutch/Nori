@@ -1,11 +1,11 @@
 class MarkerManager {
-  constructor(map, handleClick){
+  constructor(map, handleClick) {
     this.map = map;
     this.handleClick = handleClick;
     this.markers = {};
   }
 
-  updateMarkers(businesses){
+  updateMarkers(businesses) {
     const businessesObj = {};
     let bounds = new google.maps.LatLngBounds();
 
@@ -13,7 +13,7 @@ class MarkerManager {
 
     Object.keys(this.markers)
       .forEach((businessId) => this.removeMarker(this.markers[businessId]))
-    
+
     businesses
       .forEach(newBusiness => {
         let latLng = new google.maps.LatLng(newBusiness.lat, newBusiness.lng);
@@ -22,10 +22,10 @@ class MarkerManager {
       })
 
     if (bounds.getNorthEast().equals(bounds.getSouthWest())) {
-       var extendPoint1 = new google.maps.LatLng(bounds.getNorthEast().lat() + 0.001, bounds.getNorthEast().lng() + 0.001);
-       var extendPoint2 = new google.maps.LatLng(bounds.getNorthEast().lat() - 0.001, bounds.getNorthEast().lng() - 0.001);
-       bounds.extend(extendPoint1);
-       bounds.extend(extendPoint2);
+      var extendPoint1 = new google.maps.LatLng(bounds.getNorthEast().lat() + 0.001, bounds.getNorthEast().lng() + 0.001);
+      var extendPoint2 = new google.maps.LatLng(bounds.getNorthEast().lat() - 0.001, bounds.getNorthEast().lng() - 0.001);
+      bounds.extend(extendPoint1);
+      bounds.extend(extendPoint2);
     }
 
     this.map.fitBounds(bounds);
@@ -40,10 +40,10 @@ class MarkerManager {
       icon: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
     });
 
-    let contentString = '<div id="content">'+
-      `<h5 id="firstHeading" class="firstHeading">${business.name}</h5>`+
-      `<div id="bodyContent"><div>${business.address}</div>`+
-      `<div>${business.review_count} reviews</div>`+
+    let contentString = '<div id="content">' +
+      `<h5 id="firstHeading" class="firstHeading">${business.name}</h5>` +
+      `<div id="bodyContent"><div>${business.address}</div>` +
+      `<div>${business.review_count} reviews</div>` +
       '</div>';
 
     let infowindow = new google.maps.InfoWindow({
@@ -56,7 +56,7 @@ class MarkerManager {
     let el = document.getElementById(`${business.name}`);
 
     marker.addListener('mouseover', () => {
-     infowindow.open(map, marker);
+      infowindow.open(map, marker);
       el.style["box-shadow"] = "-2px 2px 20px 0px #dfdfdf";
       el.style["color"] = "#c22020";
       el.style["border-radius"] = "5px";
