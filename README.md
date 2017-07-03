@@ -38,7 +38,7 @@ The splash page has a search bar that will performs just like the search bar com
 ![Screenshot of Splash](docs/assets/images/splash.png)
 
 ### Search
-Nori searches for businesses by sending ajax requests with query strings for `name` & `category`.  The backend checks for these params and filters the businesses with SQL queries.
+Nori searches for businesses by sending ajax requests with query strings for `name`, `address`, `price_rating` & `category`.  The backend is using PgSearch to search text of businesses and associated models like categories.
 
 ![Animation of search page](/docs/assets/images/searchbar.gif)
 
@@ -62,7 +62,7 @@ Every time a user creates or updates a review, the business's overall rating is 
 
 ## Plans for the Project
 
-### Smarter Query Search Results
+### Smarter Query Search Results -- COMPLETED
 I want to make the search functionality a lot better.  Right now users cannot go back to their previous search results without typing them in again.  I want to make the query change the path so the state can be replicated on refresh/external linking.  I am going to look into using the PGsearch gem, or adding the queries params myself.
 
 ### Profiles/Feed
