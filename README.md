@@ -40,7 +40,7 @@ The splash page has a search bar that will performs just like the search bar com
 ### Search
 Nori searches for businesses by sending ajax requests with query strings for `name` & `category`.  The backend checks for these params and filters the businesses with SQL queries.
 
-![Screenshot of search page](/docs/assets/images/search.png)
+![Animation of search page](/docs/assets/images/searchbar.gif)
 
 ### Map
 When searching for a business, the response updates the businesses slice of state with all matching businesses.  A map view component is rendered that uses a business marker class to manage the addition and removal of markers.  Location markers are placed on the map for each business search listing.  During that time, event listeners are registered for click, mouseover, and mouseleave events on the google map.  Markers are updated on state change to remove and add the necessary business markers.
