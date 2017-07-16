@@ -21,15 +21,13 @@ export const receiveCategory = (category) => {
 export const fetchAllCategories = () => dispatch => {
   return CategoryAPIUtil.fetchAllCategories()
     .then(
-      (categories) => dispatch(receiveAllCategories(categories)),
-      (errors) => console.log(errors)
+      (categories) => dispatch(receiveAllCategories(categories))
     );
 };
 
 export const fetchCategory = (id) => dispatch => {
   return CategoryAPIUtil.fetchCategory(id)
     .then(
-      (category) => dispatch(receiveCategory(category)),
-      (errors) => console.log(errors)
+      (category) => dispatch(receiveCategory(category))
     );
 };
