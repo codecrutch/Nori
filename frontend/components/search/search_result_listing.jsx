@@ -3,13 +3,7 @@ import { Link } from 'react-router-dom';
 import StarRatingComponent from 'react-star-rating-component';
 
 
-const ratingConvert = (rating) => {
-  let priceString = '';
-  for (let i = 0; i < (parseInt(rating) + 1); i++) {
-    priceString = priceString.concat('$');
-  };
-  return priceString;
-};
+const ratingConvert = (rating) => new Array(parseInt(rating)).fill('$');
 
 const SearchResultListing = ({business}) => {
   return (

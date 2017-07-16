@@ -293,8 +293,8 @@ input {
     height: 300px;
     position: relative;
     perspective: 4500px;
-    top: -54px;
-    left: 69px;
+    top: -16px;
+    left: 35px;
 }
 
 .react-3d-carousel .carousel {
@@ -370,8 +370,4 @@ input {
     width: 0px;
     height: 49px;
     margin: auto;
-}
-
-.small-carousel {
-    transform: translateZ(-5000px);
 }

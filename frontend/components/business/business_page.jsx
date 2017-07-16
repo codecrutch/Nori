@@ -24,6 +24,8 @@ const mapDispatchToProps = dispatch => {
   });
 };
 
+const ratingConvert = (rating) => new Array(parseInt(rating)).fill('$');
+
 class BusinessPage extends React.Component {
   constructor(props){
     super(props);
@@ -67,7 +69,8 @@ class BusinessPage extends React.Component {
                   renderStarIconHalf={() => <span className="fa fa-star-half-full" />}
                 />
               </span>
-              <span className="business-page-review-count">{ business.review_count } reviews</span>
+              <span className="business-page-review-count">{ business.review_count } reviews &nbsp;
+               <span style={{ color: 'green' }}>{ratingConvert(business.overall_rating)}</span></span>
             </div>
 
             <div className="business-page-upload">
@@ -81,7 +84,13 @@ class BusinessPage extends React.Component {
           </div>
 
           <div className="business-page-row">
-            <MapView key={uniqueId("bp-map")} business={business} />
+            <section style={{ border: '0.5px solid black', borderRadius: '10px', fontSize: '15px', padding: '7px'}}> 
+              <MapView key={uniqueId("bp-map")} business={business} />
+              <br />
+              <i className="fa fa-address-card" aria-hidden="true"></i><span>{business.address}</span>
+              <br />
+              <i className="fa fa-phone" aria-hidden="true"></i><span>{business.phone}</span>
+            </section>
             <ImageView key={uniqueId("images")} business={business} />
           </div>
 
