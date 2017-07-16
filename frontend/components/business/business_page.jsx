@@ -87,7 +87,7 @@ class BusinessPage extends React.Component {
             <section style={{ border: '0.5px solid black', borderRadius: '10px', fontSize: '15px', padding: '7px'}}> 
               <MapView key={uniqueId("bp-map")} business={business} />
               <br />
-              <i className="fa fa-address-card" aria-hidden="true"></i><span>{business.address}</span>
+              <i className="fa fa-map-marker" aria-hidden="true"></i><span>{business.address}</span>
               <br />
               <i className="fa fa-phone" aria-hidden="true"></i><span>{business.phone}</span>
             </section>
