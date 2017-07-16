@@ -1,5 +1,6 @@
 import React from 'react';
 import uniqueId from '../../util/unique_id';
+import Carousel from 'react-3d-carousel';
 
 class ImageView extends React.Component {
   constructor(props){
@@ -10,11 +11,9 @@ class ImageView extends React.Component {
     let business = this.props.business;
 
     if (business.uploaded_images) {
-      let images = business.uploaded_images.map(src => <img id="upload-image" className="img-thumbnail" style={{  margin: '5px', width: '90px', height: '90px' }} src={src} key={uniqueId()}/>);
-
       return (
-        <div style={{ postion: 'relative', left: '100px', display: 'flex', justifyContent: 'space-around' }}>
-          {images}
+        <div style={{ postion: 'relative' }}>
+          <Carousel className="small-carousel" width={450} images={business.uploaded_images} ease={'sineInOut'} duration={400} layout={'classic'}/>
         </div>
       );
     } else {
