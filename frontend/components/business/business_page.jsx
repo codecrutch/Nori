@@ -51,6 +51,30 @@ class BusinessPage extends React.Component {
 
   displayBusiness(){
     let business = this.props.business;
+    let uploadButtonStyle = {
+      display: 'inline-block',
+      margin: '0',
+      cursor: 'pointer',
+      border: '1px solid',
+      fontWeight: 'bold',
+      textAlign: 'center',
+      WebkitUserSelect: 'none',
+      MozUserSelect: 'none',
+      msUserSelect: 'none',
+      userSelect: 'none',
+      fontSize: '14px',
+      lineHeight: '1.28571em',
+      borderColor: '#ccc',
+      color: '#666',
+      backgroundColor: '#f7f7f7',
+      background: 'webkit-linear-gradient(#fff, #f7f7f7)',
+      background: 'linear-gradient(#fff, #f7f7f7)',
+      WebkitBoxShadow: '0 1px 1px rgba(0, 0, 0, 0.1)',
+      boxShadow: '0 1px 1px rgba(0, 0, 0, 0.1)',
+      padding: '12px 19px 0px',
+      borderRadius: '3px'
+    }
+
     if (business.id) {
       return (
         <section key={business.id}>
@@ -75,7 +99,7 @@ class BusinessPage extends React.Component {
 
             <div className="business-page-upload">
               <span>
-                <Link to={`/uploads/${business.id}`}>
+                <Link to={`/uploads/${business.id}`} style={uploadButtonStyle}>
                   <i className="fa fa-camera" aria-hidden="true"></i>
                   &nbsp;Upload Image
                 </Link>
