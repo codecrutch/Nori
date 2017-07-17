@@ -83,7 +83,7 @@ class BusinessPage extends React.Component {
             </div>
           </div>
 
-          <div className="business-page-row">
+          <div className="business-page-row" style={{overflow: 'hidden'}}>
             <section style={{ border: '0.5px solid black', borderRadius: '10px', fontSize: '15px', padding: '7px'}}> 
               <MapView key={uniqueId("bp-map")} business={business} />
               <br />
