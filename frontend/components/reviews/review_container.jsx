@@ -108,7 +108,7 @@ class ReviewForm extends React.Component {
 
       if (currentUser) {
         reviewForm = (
-          <Link to={`/business/${business.id}/review`} style={writeReviewStyle}><i class="fa fa-star" aria-hidden="true"></i>&nbsp;Write a review</Link>
+          <Link to={`/business/${business.id}/review`} style={writeReviewStyle}><i className="fa fa-star" aria-hidden="true"></i>&nbsp;Write a review</Link>
         )
       } else {
         reviewForm = (
