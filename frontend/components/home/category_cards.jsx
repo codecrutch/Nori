@@ -5,7 +5,7 @@ const CategoryCards = ({categories}) => {
   let allCategories = categories.map(category => <CategoryCardItem key={category.id} category={category}/>);
   return (
     <div className="category-container" style={{ display: 'flex', justifyContent: 'center'}} >
-      <div className="col-lg-8 col-md-12" style={{ width: '900px'}}>
+      <div className="col-lg-8 col-md-12" style={{ width: '900px', marginLeft: '26px'}}>
         <div className="category-cards">
           {allCategories}
         </div>
