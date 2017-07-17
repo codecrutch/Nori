@@ -54,6 +54,31 @@ class ReviewForm extends React.Component {
     let currentUser = this.props.currentUser;
     let business = this.props.business;
 
+    let reviewFormStyle = {
+      display: 'block',
+      width: '344px',
+      margin: '0 auto',
+      padding: '4px',
+      textAlign: 'center',
+      backgroundColor: '#c22020',
+      color: 'white'
+    }
+
+    let writeReviewStyle = {
+      border: '0.5px solid black',
+      borderRadius: '5px',
+      padding: '0px 20px 0px 12px',
+      textAlign: 'center',
+      margin: '10px',
+      borderColor: '#8d0005',
+      background: 'linear-gradient(#d90007, #c91400)',
+      color: 'white',
+      boxShadow: '0 1px 1px rgba(0,0,0,0.3)',
+      position: 'relative',
+      top: '-36px',
+      right: '-372px'
+    }
+
     if (reviews) {
       let allReviews = reviews.map(review => (
         <section key={review.id} className="review-list" style={{ padding: '10px 10px', marginRight: '25px', display: 'flex', justifyContent: 'space-between', width: '600px' }}>
@@ -83,15 +108,15 @@ class ReviewForm extends React.Component {
 
       if (currentUser) {
         reviewForm = (
-          <Link to={`/business/${business.id}/review`}>Write a review</Link>
+          <Link to={`/business/${business.id}/review`} style={writeReviewStyle}><i class="fa fa-star" aria-hidden="true"></i>&nbsp;Write a review</Link>
         )
       } else {
         reviewForm = (
-          <Link to="/login"><strong style={{ display: 'block', width: '344px', margin: '0 auto' }} className="well">Login to review this business</strong></Link>
+          <Link to="/login"><strong style={reviewFormStyle} className="well">Login to review this business</strong></Link>
         )
       };
 
-      let reviewHead = (reviews.length > 0 ? <h2>Reviews</h2> : <h2>No reviews</h2>);
+      let reviewHead = (reviews.length > 0 ? <h2 style={{margin: '0'}}>Recommended Reviews</h2> : <h2>No reviews</h2>);
 
       return (
         <div>

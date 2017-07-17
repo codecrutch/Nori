@@ -42,7 +42,7 @@ class CreateReview extends React.Component {
     "\tPlease don't review this business if you have received a freebie.";
     return (
     <div>
-      <h1>Write A Review</h1>
+      <h1 style={{ textAlign: 'center'}}>Write A Review</h1>
       <section id="review-box" style={{ display: 'flex', flexDirection: 'column', width: '600px', border: '1px solid #bbb', borderRadius: '4px'}}>
         <span style={{ fontSize: '20px', width: '570px', margin: '10px 10px', borderBottom: '1px solid #bbb' }}>
           <StarRatingComponent

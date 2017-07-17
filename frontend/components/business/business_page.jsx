@@ -94,7 +94,7 @@ class BusinessPage extends React.Component {
             <ImageView key={uniqueId("images")} business={business} />
           </div>
 
-          <div className="business-page-row">
+          <div className="business-page-row" style={{marginTop: '40px'}}>
             <Reviews business={business} />
             <span className="business-hours"><BusinessHours key={uniqueId("bh")} business={business} /></span>
           </div>

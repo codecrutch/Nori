@@ -224,13 +224,15 @@ input {
 
 #review-submit-btn {
   padding: 5px 20px;
-  background: rgba(168, 36, 36, 0.79);
   border-radius: 5px;
   color: white;
+  border-color: #8d0005;
+  background: linear-gradient(#d90007, #c91400);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
 }
 
 #review-submit-btn:hover {
-    background: rgb(245, 100, 75);
+    background: lighten(#d90007, 2);
 }
 
 .review-list{
