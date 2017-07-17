@@ -108,8 +108,14 @@ class BusinessForm extends React.Component {
 
   render(){
     let hoursPlaceholder = "ex. 6:00am - 5:45pm";
-
-    return(
+    let imageOuput;
+    if (this.state.business_img_url) {
+      imageOuput = <img src={this.state.business_img_url} style={{ width: '90px', height: '90px', borderRadius: '5px', marginBottom: '10px'}}/>
+    } else {
+      imageOuput = null;
+    }
+    
+      return(
       <section className='business-form-layout container'>
         <section id="form" className='business-form-container row'>
           <div className="form-left col-med-12 col-lg-12 text-center">
@@ -125,8 +131,8 @@ class BusinessForm extends React.Component {
               <br />
               <input className="business-form-website-url" placeholder="Website URL" onChange={(e) => this.handleInput(e, "website_url")} type='text' />
               <br />
-              <img src={this.state.business_img_url} style={{ width: '90px', height: '90px', borderRadius: '5px', marginBottom: '10px'}}/>
-              <br/>
+              {imageOuput}
+              <br />
               <input className="business-form-business-img-url inputfile" name="file" id="file" placeholder="Business Image" onChange={(e) => this.updateFile(e)} type='file' />
               <label htmlFor="file">Choose a profile picture</label>
               <br />

@@ -223,8 +223,11 @@
     font-size: 1.25em;
     font-weight: 700;
     color: white;
-    background-color: rgb(232, 117, 92);
+    background: linear-gradient(rgb(217, 0, 7), rgb(201, 20, 0));
     box-shadow: 0 3px 6px rgba(0,0,0,0.3), inset 0 -3px 3px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    text-align: center;
+    border: 0.5px solid rgb(141, 0, 5);
     border-radius: 5px;
     display: inline-block;
     padding: 3px 10px;

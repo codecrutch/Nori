@@ -50,13 +50,27 @@ class UploadForm extends React.Component {
   }
 
   render(){
+    let fileInputStyle = {
+      width: '150px',
+      margin: '0 auto',
+      fontSize: '15px',
+      padding: '5px 10px'
+    }
+
+    let imageOutput; 
+    if (this.state.uploaded_image_url) {
+     imageOutput = <img className="img-thumbnail" src={this.state.uploaded_image_url} style={{ margin: '0 auto', width: '100%', maxWidth: '40%'}} />;
+    } else {
+      imageOutput = null;
+    }      
+    
     return (
-      <section style={{margin: '0 auto', display: 'flex', justifyContent: 'center', boxShadow: '2px 3px 12px #796c6c', width: '600px', borderRadius: '5px' }}>
+      <section style={{margin: '0 auto', display: 'flex', justifyContent: 'center', border: '2px dashed grey', width: '600px', borderRadius: '5px' }}>
         <div style={{ display: 'flex', margin: '0 auto', justifyContent: 'center', flexDirection: 'column', width: '900px' }}>
-          <h2 style={{ margin: '0 auto'}}>Upload a Photo</h2>
-          <div style={{ height: '100px'}}/>
-          <img className="img-thumbnail" src={this.state.uploaded_image_url} style={{ margin: '0 auto', width: '100px'}} />
-          <input style={{ background: 'rgb(232, 51, 62)', float: 'right' }} type="file" onChange={(e) => this.updateFile(e)} placeholder="Upload an Image"/>
+          <h2 style={{ margin: '0 auto', paddingTop: '10px'}}>Upload a Photo</h2>
+          {imageOutput}
+          <input className="inputfile" id="file" name="file" type="file" onChange={(e) => this.updateFile(e)} placeholder="Upload an Image"/>
+          <label htmlFor="file" style={fileInputStyle} >Browse files</label>
           <input style={{background: '#c22020', color: 'white', outline: 'none', borderRadius: '5px'}} type="submit" value="Upload Image" onClick={(e) => this.handleSubmit(e)} placeholder="Upload"/>
         </div>
       </section>
