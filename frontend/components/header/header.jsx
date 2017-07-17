@@ -68,7 +68,7 @@ class Header extends React.Component {
               <div className="navbar-header"></div>
 
               <div className="navbar-collapse collapse" id="navbar-collapsible">
-                <form className="navbar-form text-center" style={{ display: 'flex', justifyContent: 'center' }}>
+                <form className="navbar-form text-center" style={{ display: 'flex', justifyContent: 'center', marginLeft: '62px' }}>
                   <Link className="" style={{ float: 'left', textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black', fontSize: '30px', fontFamily: 'Satisfy'}} to="/">Nori</Link>
                   <SearchBar searchSize="small" fetchAllBusinesses={this.props.fetchAllBusinesses} />
                 </form>
