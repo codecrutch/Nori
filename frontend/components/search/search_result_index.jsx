@@ -46,6 +46,7 @@ class SearchResultIndex extends React.Component {
     document.body.scrollTop = 0;
     if (this.props.location.search !== newProps.location.search) {
       let search = newProps.location.search;
+      this.setState({ loading: true });
       if (search) {
         let query = newProps.location.search.split('q=')[1];
         newProps.fetchAllBusinesses(query).then(
