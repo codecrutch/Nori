@@ -12,7 +12,8 @@ import uniqueId from '../../util/unique_id';
 
 const mapStateToProps = (state, ownProps) => {
   return({
-    business: state.businesses.currentBusiness
+    business: state.businesses.currentBusiness,
+    currentUser: state.session.currentUser
   });
 };
 
@@ -49,9 +50,8 @@ class BusinessPage extends React.Component {
     this.props.clearBusinesses();
   }
 
-  displayBusiness(){
-    let business = this.props.business;
-    let uploadButtonStyle = {
+  displayUpload(business) {
+     let uploadButtonStyle = {
       display: 'inline-block',
       margin: '0',
       cursor: 'pointer',
@@ -74,6 +74,21 @@ class BusinessPage extends React.Component {
       padding: '12px 19px 0px',
       borderRadius: '3px'
     }
+    
+    if(this.props.currentUser) {
+      return (
+      <Link to={`/uploads/${business.id}`} style={uploadButtonStyle}>
+        <i className="fa fa-camera" aria-hidden="true"></i>
+        &nbsp;Upload Image
+      </Link>
+      )
+    } else {
+      return null;
+    }
+  }
+
+  displayBusiness(){
+    let business = this.props.business;
 
     if (business.id) {
       return (
@@ -99,10 +114,7 @@ class BusinessPage extends React.Component {
 
             <div className="business-page-upload">
               <span>
-                <Link to={`/uploads/${business.id}`} style={uploadButtonStyle}>
-                  <i className="fa fa-camera" aria-hidden="true"></i>
-                  &nbsp;Upload Image
-                </Link>
+                {this.displayUpload(business)}
               </span>
             </div>
           </div>
