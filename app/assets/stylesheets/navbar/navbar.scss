@@ -189,6 +189,12 @@
 
 #under-nav-links {
   flex: 1;
+  a {
+    color: white;
+  }
+  a:visited {
+    color: white;
+  }
 }
 
 @media (min-width: 200px) and (max-width: 650px) {
