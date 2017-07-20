@@ -28,14 +28,17 @@ class SearchResultIndex extends React.Component {
   }
 
   componentDidMount(){
-    setTimeout(() => this.setState({ loading: false }), 200); 
     document.body.scrollTop = 0;
     let search = this.props.location.search;
     if (search) {
       let query = this.props.location.search.split('q=')[1];
-      this.props.fetchAllBusinesses(query);
+      this.props.fetchAllBusinesses(query).then(
+         setTimeout(() => this.setState({ loading: false }), 200)
+       );
     } else {
-      this.props.fetchAllBusinesses();
+      this.props.fetchAllBusinesses().then(
+         setTimeout(() => this.setState({ loading: false }), 200)
+      );
     }
   }
 
@@ -55,9 +58,18 @@ class SearchResultIndex extends React.Component {
   displayBusinesses(){
     let businesses = this.props.businesses;
     if (businesses.length === 0) {
-      return null;
+      return <h1 style={{ fontSize: '18px'}}><strong>Sorry, didn't find any results. Try another search!</strong></h1>;
     } else {
       return businesses.map(business => <SearchResultListing className='business-listing' key={uniqueId('business')} business={business} />);
+    }
+  }
+
+  displayMap(){
+    let businesses = this.props.businesses;
+    if (businesses.length === 0) {
+      return null;
+    } else {
+      return <MultiMap businesses={this.props.businesses} />
     }
   }
 
@@ -74,7 +86,7 @@ class SearchResultIndex extends React.Component {
             {this.displayBusinesses()}
           </section>
           <section className="businesses-map col-lg-4 col-xs-12 col-sm-12 col-md-6">
-            <MultiMap businesses={this.props.businesses} />
+            {this.displayMap()}
           </section>
         </div>
       )
