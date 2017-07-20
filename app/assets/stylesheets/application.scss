@@ -339,6 +339,7 @@ input {
     width: 15%;
     top: 0px;
     left: 0px;
+    user-select: none;
 }
 
 .react-3d-carousel   .prev:before {
@@ -351,6 +352,7 @@ input {
     width: 43px;
     height: 49px;
     margin: auto;
+    user-select: none;
 }
 
 .react-3d-carousel  .next {
@@ -359,6 +361,7 @@ input {
     width: 15%;
     top: 0px;
     right: -5px;
+    user-select: none;
 }
   
 .react-3d-carousel  .next:before
@@ -372,6 +375,7 @@ input {
     width: 0px;
     height: 49px;
     margin: auto;
+    user-select: none;
 }
 
 .loader:empty,
