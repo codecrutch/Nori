@@ -33,11 +33,11 @@ class SearchResultIndex extends React.Component {
     if (search) {
       let query = this.props.location.search.split('q=')[1];
       this.props.fetchAllBusinesses(query).then(
-         setTimeout(() => this.setState({ loading: false }), 200)
+         setTimeout(() => this.setState({ loading: false }), 500)
        );
     } else {
       this.props.fetchAllBusinesses().then(
-         setTimeout(() => this.setState({ loading: false }), 200)
+         setTimeout(() => this.setState({ loading: false }), 500)
       );
     }
   }
@@ -48,9 +48,13 @@ class SearchResultIndex extends React.Component {
       let search = newProps.location.search;
       if (search) {
         let query = newProps.location.search.split('q=')[1];
-        newProps.fetchAllBusinesses(query);
+        newProps.fetchAllBusinesses(query).then(
+         setTimeout(() => this.setState({ loading: false }), 500)
+       );
       } else {
-        newProps.fetchAllBusinesses();
+        newProps.fetchAllBusinesses().then(
+         setTimeout(() => this.setState({ loading: false }), 500)
+       );
       }
     }
   }
