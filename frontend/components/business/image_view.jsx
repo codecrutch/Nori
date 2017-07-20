@@ -9,11 +9,11 @@ class ImageView extends React.Component {
 
   displayImages(){
     let business = this.props.business;
-
     if (business.uploaded_images) {
+      let randomImages = this.imageSampler(business.uploaded_images);
       return (
         <div style={{ postion: 'relative' }}>
-          <Carousel className="small-carousel" width={450} images={business.uploaded_images} ease={'sineInOut'} duration={400} layout={'classic'}/>
+          <Carousel className="small-carousel" width={450} images={randomImages} ease={'sineInOut'} duration={400} layout={'classic'}/>
         </div>
       );
     } else {
@@ -21,6 +21,21 @@ class ImageView extends React.Component {
         <h1>No Images</h1>
       );
     };
+  }
+  
+  getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+  }
+
+  imageSampler(images) {
+    return this.getRandomSubarray(images, 3);  
   }
 
   render(){
